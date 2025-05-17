@@ -20,9 +20,8 @@
 
 
 
-#include <vector>
-#include <string>
 #include <optional>
+#include <string>
 
 namespace margelo::nitro::nitrogooglesso {
 
@@ -31,14 +30,14 @@ namespace margelo::nitro::nitrogooglesso {
    */
   struct NitroGoogleSSOConfig {
   public:
-    std::vector<std::string> scopes     SWIFT_PRIVATE;
     std::optional<std::string> nonce     SWIFT_PRIVATE;
     std::string iosClientId     SWIFT_PRIVATE;
     std::string webClientId     SWIFT_PRIVATE;
+    std::optional<std::string> hostedDomain     SWIFT_PRIVATE;
 
   public:
     NitroGoogleSSOConfig() = default;
-    explicit NitroGoogleSSOConfig(std::vector<std::string> scopes, std::optional<std::string> nonce, std::string iosClientId, std::string webClientId): scopes(scopes), nonce(nonce), iosClientId(iosClientId), webClientId(webClientId) {}
+    explicit NitroGoogleSSOConfig(std::optional<std::string> nonce, std::string iosClientId, std::string webClientId, std::optional<std::string> hostedDomain): nonce(nonce), iosClientId(iosClientId), webClientId(webClientId), hostedDomain(hostedDomain) {}
   };
 
 } // namespace margelo::nitro::nitrogooglesso
@@ -53,18 +52,18 @@ namespace margelo::nitro {
     static inline NitroGoogleSSOConfig fromJSI(jsi::Runtime& runtime, const jsi::Value& arg) {
       jsi::Object obj = arg.asObject(runtime);
       return NitroGoogleSSOConfig(
-        JSIConverter<std::vector<std::string>>::fromJSI(runtime, obj.getProperty(runtime, "scopes")),
         JSIConverter<std::optional<std::string>>::fromJSI(runtime, obj.getProperty(runtime, "nonce")),
         JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, "iosClientId")),
-        JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, "webClientId"))
+        JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, "webClientId")),
+        JSIConverter<std::optional<std::string>>::fromJSI(runtime, obj.getProperty(runtime, "hostedDomain"))
       );
     }
     static inline jsi::Value toJSI(jsi::Runtime& runtime, const NitroGoogleSSOConfig& arg) {
       jsi::Object obj(runtime);
-      obj.setProperty(runtime, "scopes", JSIConverter<std::vector<std::string>>::toJSI(runtime, arg.scopes));
       obj.setProperty(runtime, "nonce", JSIConverter<std::optional<std::string>>::toJSI(runtime, arg.nonce));
       obj.setProperty(runtime, "iosClientId", JSIConverter<std::string>::toJSI(runtime, arg.iosClientId));
       obj.setProperty(runtime, "webClientId", JSIConverter<std::string>::toJSI(runtime, arg.webClientId));
+      obj.setProperty(runtime, "hostedDomain", JSIConverter<std::optional<std::string>>::toJSI(runtime, arg.hostedDomain));
       return obj;
     }
     static inline bool canConvert(jsi::Runtime& runtime, const jsi::Value& value) {
@@ -72,10 +71,10 @@ namespace margelo::nitro {
         return false;
       }
       jsi::Object obj = value.getObject(runtime);
-      if (!JSIConverter<std::vector<std::string>>::canConvert(runtime, obj.getProperty(runtime, "scopes"))) return false;
       if (!JSIConverter<std::optional<std::string>>::canConvert(runtime, obj.getProperty(runtime, "nonce"))) return false;
       if (!JSIConverter<std::string>::canConvert(runtime, obj.getProperty(runtime, "iosClientId"))) return false;
       if (!JSIConverter<std::string>::canConvert(runtime, obj.getProperty(runtime, "webClientId"))) return false;
+      if (!JSIConverter<std::optional<std::string>>::canConvert(runtime, obj.getProperty(runtime, "hostedDomain"))) return false;
       return true;
     }
   };

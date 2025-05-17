@@ -8,7 +8,7 @@ class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec {
     let nitroGoogleSSOImpl = NitroGoogleSSOImpl()
     
     func configure(config: NitroGoogleSSOConfig) throws {
-        GIDSignIn.sharedInstance.configuration = getConfig(config)
+        GIDSignIn.sharedInstance.configuration = nitroGoogleSSOImpl.getConfig(config)
     }
     
     func getCurrentUser() throws -> Promise<NitroGoogleUserInfo?> {
@@ -22,13 +22,6 @@ class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec {
                 throw error
             }
         }
-    }
-    
-    func getConfig(_ config: NitroGoogleSSOConfig) -> GIDConfiguration {
-        return GIDConfiguration(
-            clientID: config.iosClientId,
-            serverClientID: config.webClientId
-        )
     }
     
     func signIn() throws -> Promise<NitroGoogleUserInfo?> {
@@ -50,7 +43,7 @@ class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec {
                 throw NitroGoogleSSOError.selfNoAvailable
             }
             do {
-                try self.nitroGoogleSSOImpl.signOut()
+                try await self.nitroGoogleSSOImpl.signOut()
             } catch {
                 throw error
             }

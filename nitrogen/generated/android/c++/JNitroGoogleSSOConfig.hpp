@@ -12,7 +12,6 @@
 
 #include <optional>
 #include <string>
-#include <vector>
 
 namespace margelo::nitro::nitrogooglesso {
 
@@ -33,28 +32,19 @@ namespace margelo::nitro::nitrogooglesso {
     [[nodiscard]]
     NitroGoogleSSOConfig toCpp() const {
       static const auto clazz = javaClassStatic();
-      static const auto fieldScopes = clazz->getField<jni::JArrayClass<jni::JString>>("scopes");
-      jni::local_ref<jni::JArrayClass<jni::JString>> scopes = this->getFieldValue(fieldScopes);
       static const auto fieldNonce = clazz->getField<jni::JString>("nonce");
       jni::local_ref<jni::JString> nonce = this->getFieldValue(fieldNonce);
       static const auto fieldIosClientId = clazz->getField<jni::JString>("iosClientId");
       jni::local_ref<jni::JString> iosClientId = this->getFieldValue(fieldIosClientId);
       static const auto fieldWebClientId = clazz->getField<jni::JString>("webClientId");
       jni::local_ref<jni::JString> webClientId = this->getFieldValue(fieldWebClientId);
+      static const auto fieldHostedDomain = clazz->getField<jni::JString>("hostedDomain");
+      jni::local_ref<jni::JString> hostedDomain = this->getFieldValue(fieldHostedDomain);
       return NitroGoogleSSOConfig(
-        [&]() {
-          size_t __size = scopes->size();
-          std::vector<std::string> __vector;
-          __vector.reserve(__size);
-          for (size_t __i = 0; __i < __size; __i++) {
-            auto __element = scopes->getElement(__i);
-            __vector.push_back(__element->toStdString());
-          }
-          return __vector;
-        }(),
         nonce != nullptr ? std::make_optional(nonce->toStdString()) : std::nullopt,
         iosClientId->toStdString(),
-        webClientId->toStdString()
+        webClientId->toStdString(),
+        hostedDomain != nullptr ? std::make_optional(hostedDomain->toStdString()) : std::nullopt
       );
     }
 
@@ -65,18 +55,10 @@ namespace margelo::nitro::nitrogooglesso {
     [[maybe_unused]]
     static jni::local_ref<JNitroGoogleSSOConfig::javaobject> fromCpp(const NitroGoogleSSOConfig& value) {
       return newInstance(
-        [&]() {
-          size_t __size = value.scopes.size();
-          jni::local_ref<jni::JArrayClass<jni::JString>> __array = jni::JArrayClass<jni::JString>::newArray(__size);
-          for (size_t __i = 0; __i < __size; __i++) {
-            const auto& __element = value.scopes[__i];
-            __array->setElement(__i, *jni::make_jstring(__element));
-          }
-          return __array;
-        }(),
         value.nonce.has_value() ? jni::make_jstring(value.nonce.value()) : nullptr,
         jni::make_jstring(value.iosClientId),
-        jni::make_jstring(value.webClientId)
+        jni::make_jstring(value.webClientId),
+        value.hostedDomain.has_value() ? jni::make_jstring(value.hostedDomain.value()) : nullptr
       );
     }
   };

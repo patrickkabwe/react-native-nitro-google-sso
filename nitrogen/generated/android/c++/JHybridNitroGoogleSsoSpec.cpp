@@ -20,7 +20,6 @@ namespace margelo::nitro::nitrogooglesso { struct NitroGoogleSSOConfig; }
 #include <string>
 #include "NitroGoogleSSOConfig.hpp"
 #include "JNitroGoogleSSOConfig.hpp"
-#include <vector>
 
 namespace margelo::nitro::nitrogooglesso {
 

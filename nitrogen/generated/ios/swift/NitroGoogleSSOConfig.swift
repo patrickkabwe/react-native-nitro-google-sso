@@ -18,39 +18,22 @@ public extension NitroGoogleSSOConfig {
   /**
    * Create a new instance of `NitroGoogleSSOConfig`.
    */
-  init(scopes: [String], nonce: String?, iosClientId: String, webClientId: String) {
-    self.init({ () -> bridge.std__vector_std__string_ in
-      var __vector = bridge.create_std__vector_std__string_(scopes.count)
-      for __item in scopes {
-        __vector.push_back(std.string(__item))
-      }
-      return __vector
-    }(), { () -> bridge.std__optional_std__string_ in
+  init(nonce: String?, iosClientId: String, webClientId: String, hostedDomain: String?) {
+    self.init({ () -> bridge.std__optional_std__string_ in
       if let __unwrappedValue = nonce {
         return bridge.create_std__optional_std__string_(std.string(__unwrappedValue))
       } else {
         return .init()
       }
-    }(), std.string(iosClientId), std.string(webClientId))
+    }(), std.string(iosClientId), std.string(webClientId), { () -> bridge.std__optional_std__string_ in
+      if let __unwrappedValue = hostedDomain {
+        return bridge.create_std__optional_std__string_(std.string(__unwrappedValue))
+      } else {
+        return .init()
+      }
+    }())
   }
 
-  var scopes: [String] {
-    @inline(__always)
-    get {
-      return self.__scopes.map({ __item in String(__item) })
-    }
-    @inline(__always)
-    set {
-      self.__scopes = { () -> bridge.std__vector_std__string_ in
-        var __vector = bridge.create_std__vector_std__string_(newValue.count)
-        for __item in newValue {
-          __vector.push_back(std.string(__item))
-        }
-        return __vector
-      }()
-    }
-  }
-  
   var nonce: String? {
     @inline(__always)
     get {
@@ -93,6 +76,29 @@ public extension NitroGoogleSSOConfig {
     @inline(__always)
     set {
       self.__webClientId = std.string(newValue)
+    }
+  }
+  
+  var hostedDomain: String? {
+    @inline(__always)
+    get {
+      return { () -> String? in
+        if let __unwrapped = self.__hostedDomain.value {
+          return String(__unwrapped)
+        } else {
+          return nil
+        }
+      }()
+    }
+    @inline(__always)
+    set {
+      self.__hostedDomain = { () -> bridge.std__optional_std__string_ in
+        if let __unwrappedValue = newValue {
+          return bridge.create_std__optional_std__string_(std.string(__unwrappedValue))
+        } else {
+          return .init()
+        }
+      }()
     }
   }
 }

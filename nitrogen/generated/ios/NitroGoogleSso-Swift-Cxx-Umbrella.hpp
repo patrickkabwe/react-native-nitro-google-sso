@@ -25,7 +25,6 @@ namespace margelo::nitro::nitrogooglesso { struct NitroGoogleUserInfo; }
 #include <memory>
 #include <optional>
 #include <string>
-#include <vector>
 
 // C++ helpers for Swift
 #include "NitroGoogleSso-Swift-Cxx-Bridge.hpp"

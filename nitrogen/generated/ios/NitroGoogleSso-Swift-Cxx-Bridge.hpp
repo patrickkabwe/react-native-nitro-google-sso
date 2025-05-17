@@ -28,7 +28,6 @@ namespace NitroGoogleSso { class HybridNitroGoogleSsoSpec_cxx; }
 #include <memory>
 #include <optional>
 #include <string>
-#include <vector>
 
 /**
  * Contains specialized versions of C++ templated types so they can be accessed from Swift,
@@ -36,17 +35,6 @@ namespace NitroGoogleSso { class HybridNitroGoogleSsoSpec_cxx; }
  */
 namespace margelo::nitro::nitrogooglesso::bridge::swift {
 
-  // pragma MARK: std::vector<std::string>
-  /**
-   * Specialized version of `std::vector<std::string>`.
-   */
-  using std__vector_std__string_ = std::vector<std::string>;
-  inline std::vector<std::string> create_std__vector_std__string_(size_t size) {
-    std::vector<std::string> vector;
-    vector.reserve(size);
-    return vector;
-  }
-  
   // pragma MARK: std::optional<std::string>
   /**
    * Specialized version of `std::optional<std::string>`.

@@ -21,6 +21,7 @@ class NitroGoogleSSOImpl(
 ) {
     val signInWithGoogleOption: GetSignInWithGoogleOption = GetSignInWithGoogleOption.Builder(config.webClientId)
         .setNonce(config.nonce)
+        .setHostedDomainFilter(config.hostedDomain ?: "")
         .build()
 
     val credentialManager: CredentialManager = CredentialManager.create(context)

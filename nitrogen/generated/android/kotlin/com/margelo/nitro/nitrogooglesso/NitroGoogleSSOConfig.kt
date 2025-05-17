@@ -20,10 +20,10 @@ data class NitroGoogleSSOConfig
   @DoNotStrip
   @Keep
   constructor(
-    val scopes: Array<String>,
     val nonce: String?,
     val iosClientId: String,
-    val webClientId: String
+    val webClientId: String,
+    val hostedDomain: String?
   ) {
   /* main constructor */
 }

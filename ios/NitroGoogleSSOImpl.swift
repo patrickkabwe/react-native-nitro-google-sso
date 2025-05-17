@@ -11,6 +11,7 @@ import GoogleSignIn
 class NitroGoogleSSOImpl {
     let domain: String = "com.nitro.google.sso"
     
+    @MainActor
     func getCurrentUser() async throws -> NitroGoogleUserInfo? {
         return try await withCheckedThrowingContinuation { continuation in
             if let user = GIDSignIn.sharedInstance.currentUser {
@@ -28,10 +29,37 @@ class NitroGoogleSSOImpl {
             }
         }
     }
+    
+    @MainActor
+    func signIn() async throws -> NitroGoogleUserInfo {
+        let vc: UIViewController = try self.getRootViewController()
+        
+        let signInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: vc)
+        return mapUserInfo(from: signInResult.user)
+    }
+    
+    @MainActor
+    func signOut() throws {
+        GIDSignIn.sharedInstance.signOut()
+    }
+    
+}
 
+// Utils
+extension NitroGoogleSSOImpl {
+    func getConfig(_ config: NitroGoogleSSOConfig) -> GIDConfiguration {
+        return GIDConfiguration(
+            clientID: config.iosClientId,
+            serverClientID: config.webClientId,
+            hostedDomain: config.hostedDomain,
+            openIDRealm: nil
+        )
+    }
+    
     private func mapUserInfo(from user: GIDGoogleUser) -> NitroGoogleUserInfo {
         let profile = user.profile
         let profilePicUrl = profile?.imageURL(withDimension: 320)?.absoluteString
+        
         return NitroGoogleUserInfo(
             email: profile?.email ?? "",
             idToken: user.idToken?.tokenString ?? "",
@@ -43,39 +71,6 @@ class NitroGoogleSSOImpl {
         )
     }
     
-    @MainActor
-    func signIn() async throws -> NitroGoogleUserInfo {
-        let vc: UIViewController = try self.getRootViewController()
-        let signInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: vc)
-        
-        let user = signInResult.user
-        let emailAddress = user.profile?.email
-        let fullName = user.profile?.name
-        let givenName = user.profile?.givenName
-        let familyName = user.profile?.familyName
-        let idToken = user.idToken
-        
-        let profilePicUrl = user.profile?.imageURL(withDimension: 320)
-        
-        return NitroGoogleUserInfo(
-            email: emailAddress ?? "",
-            idToken: idToken?.tokenString ?? "",
-            givenName: givenName,
-            familyName: familyName,
-            phoneNumber: nil,
-            displayName: fullName,
-            profilePictureUri: profilePicUrl?.absoluteString
-        )
-    }
-    
-    func signOut() throws {
-        GIDSignIn.sharedInstance.signOut()
-    }
-    
-}
-
-// Utils
-extension NitroGoogleSSOImpl {
     func getRootViewController() throws -> UIViewController {
         guard let windowScene = UIApplication.shared
             .connectedScenes

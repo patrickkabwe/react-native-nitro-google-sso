@@ -18,9 +18,8 @@ namespace margelo::nitro::nitrogooglesso { struct NitroGoogleSSOConfig; }
 namespace margelo::nitro::nitrogooglesso { struct NitroGoogleUserInfo; }
 
 #include "NitroGoogleSSOConfig.hpp"
-#include <vector>
-#include <string>
 #include <optional>
+#include <string>
 #include <NitroModules/Promise.hpp>
 #include "NitroGoogleUserInfo.hpp"
 
