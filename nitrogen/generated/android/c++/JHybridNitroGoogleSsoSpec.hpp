@@ -53,6 +53,7 @@ namespace margelo::nitro::nitrogooglesso {
     // Methods
     void configure(const NitroGoogleSSOConfig& config) override;
     std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> signIn() override;
+    std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> oneTagSignIn() override;
     std::shared_ptr<Promise<void>> signOut() override;
     std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> getCurrentUser() override;
 

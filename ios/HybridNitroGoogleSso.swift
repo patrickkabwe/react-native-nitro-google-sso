@@ -4,6 +4,7 @@ import GoogleSignIn
 import UIKit
 
 class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec {
+    
     let domain: String = "com.nitro.google.sso"
     let nitroGoogleSSOImpl = NitroGoogleSSOImpl()
     
@@ -35,6 +36,10 @@ class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec {
                 throw error
             }
         }
+    }
+    
+    func oneTagSignIn() throws -> NitroModules.Promise<NitroGoogleUserInfo?> {
+        fatalError("oneTagSignIn() is not supported on iOS")
     }
     
     func signOut() throws -> Promise<Void> {

@@ -62,6 +62,22 @@ namespace margelo::nitro::nitrogooglesso {
       return __promise;
     }();
   }
+  std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> JHybridNitroGoogleSsoSpec::oneTagSignIn() {
+    static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>()>("oneTagSignIn");
+    auto __result = method(_javaPart);
+    return [&]() {
+      auto __promise = Promise<std::optional<NitroGoogleUserInfo>>::create();
+      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& __boxedResult) {
+        auto __result = jni::static_ref_cast<JNitroGoogleUserInfo>(__boxedResult);
+        __promise->resolve(__result != nullptr ? std::make_optional(__result->toCpp()) : std::nullopt);
+      });
+      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
+        jni::JniException __jniError(__throwable);
+        __promise->reject(std::make_exception_ptr(__jniError));
+      });
+      return __promise;
+    }();
+  }
   std::shared_ptr<Promise<void>> JHybridNitroGoogleSsoSpec::signOut() {
     static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>()>("signOut");
     auto __result = method(_javaPart);

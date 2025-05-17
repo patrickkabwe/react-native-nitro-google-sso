@@ -1,11 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {Alert, Button, StyleSheet, Text, View} from 'react-native';
+import {Alert, Button, Platform, StyleSheet, Text, View} from 'react-native';
 import NitroGoogleSSO, {
   type NitroGoogleUserInfo,
 } from 'react-native-nitro-google-sso';
 
-const iosClientId = process.env.GID_CLIENT_ID || '';
-const webClientId = process.env.GID_SERVER_CLIENT_ID || '';
+const iosClientId =
+  process.env.GID_CLIENT_ID ||
+  '2213441010-ocn1h0m4s73socf0md7a29d3m7plng3b.apps.googleusercontent.com';
+const webClientId =
+  process.env.GID_SERVER_CLIENT_ID ||
+  '2213441010-vuqdede2t8vtnhs7no393qn5sjtehvu6.apps.googleusercontent.com';
 
 NitroGoogleSSO.configure({
   iosClientId,
@@ -66,20 +70,34 @@ function App(): React.JSX.Element {
           }}
         />
       ) : (
-        <Button
-          title="Login"
-          onPress={async () => {
-            try {
-              setIsLoading(true);
-              const user = await NitroGoogleSSO.signIn();
-              setUser(user);
-            } catch (error) {
-              console.log('error', error);
-            } finally {
-              setIsLoading(false);
-            }
-          }}
-        />
+        <>
+          <View style={styles.spacer} />
+          <Button
+            title="Login"
+            onPress={async () => {
+              try {
+                setIsLoading(true);
+                const user = await NitroGoogleSSO.signIn();
+                setUser(user);
+              } catch (error) {
+                console.log('error', error);
+              } finally {
+                setIsLoading(false);
+              }
+            }}
+          />
+          <View style={styles.spacer} />
+
+          {Platform.OS === 'android' && (
+            <Button
+              title="One Tag Login"
+              onPress={async () => {
+                const user = await NitroGoogleSSO.oneTagSignIn();
+                setUser(user);
+              }}
+            />
+          )}
+        </>
       )}
     </View>
   );
@@ -94,6 +112,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 40,
     color: 'green',
+  },
+  spacer: {
+    height: 10,
   },
 });
 

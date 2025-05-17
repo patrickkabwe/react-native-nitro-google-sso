@@ -1,12 +1,3 @@
-/**
- *  
- */
-export enum NitroGoogleSSOConfigType {
-    GOOGLE_ID = 'google_id',
-    
-}
-
-
 export type NitroGoogleSSOConfig = {
     /**
      * The scopes are the permissions you are requesting from the user.
@@ -35,6 +26,10 @@ export type NitroGoogleSSOConfig = {
      * @example 'example.com'
      */
     hostedDomain?: string;
+}
+
+export type NitroGoogleSSOOneTagSignInOptions = {
+    
 }
 
 export type NitroGoogleUserInfo = {

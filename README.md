@@ -65,6 +65,23 @@ try {
 }
 ```
 
+### One Tag Sign In
+
+To sign in with Google using the one tag sign in:
+
+```typescript
+try {
+  const user = await NitroGoogleSSO.oneTagSignIn()
+  if (user) {
+    console.log('User signed in:', user)
+  } else {
+    console.log('User cancelled sign in')
+  }
+} catch (error) {
+  console.error('Sign in error:', error)
+}
+```
+
 ### Get Current User
 
 To get the currently signed-in user's information:
