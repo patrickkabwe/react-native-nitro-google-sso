@@ -76,6 +76,14 @@ namespace margelo::nitro::nitrogooglesso {
       auto __value = std::move(__result.value());
       return __value;
     }
+    inline std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> oneTapSignIn() override {
+      auto __result = _swiftPart.oneTapSignIn();
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
     inline std::shared_ptr<Promise<void>> signOut() override {
       auto __result = _swiftPart.signOut();
       if (__result.hasError()) [[unlikely]] {

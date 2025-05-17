@@ -50,6 +50,10 @@ abstract class HybridNitroGoogleSsoSpec: HybridObject() {
   
   @DoNotStrip
   @Keep
+  abstract fun oneTapSignIn(): Promise<NitroGoogleUserInfo?>
+  
+  @DoNotStrip
+  @Keep
   abstract fun signOut(): Promise<Unit>
   
   @DoNotStrip

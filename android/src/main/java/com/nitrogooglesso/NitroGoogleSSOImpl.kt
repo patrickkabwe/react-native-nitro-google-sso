@@ -20,58 +20,39 @@ class NitroGoogleSSOImpl(
     private val context: ReactApplicationContext,
     private val config: NitroGoogleSSOConfig
 ) {
-    val signInWithGoogleOption: GetSignInWithGoogleOption = GetSignInWithGoogleOption.Builder(config.webClientId)
-        .setNonce(config.nonce)
-        .setHostedDomainFilter(config.hostedDomain ?: "")
-        .build()
-
     val credentialManager: CredentialManager = CredentialManager.create(context)
 
-    suspend fun getCurrentUser(): NitroGoogleUserInfo {
-        val googleIdOption: GetGoogleIdOption = GetGoogleIdOption.Builder()
-            .setFilterByAuthorizedAccounts(false)
-            .setServerClientId(config.webClientId)
-            .setAutoSelectEnabled(false)
-            .setRequestVerifiedPhoneNumber(true)
-            .setNonce(config.nonce)
-            .build()
-
-        val request: GetCredentialRequest = getRequest(googleIdOption)
-        try {
-            val result = credentialManager.getCredential(
-                request = request,
-                context = context.currentActivity ?: throw Error("No HybridNitroGoogleSSO context activity"),
-            )
-            return handleSignInResult(result.credential)
-        } catch (e: GetCredentialException) {
-            e.printStackTrace()
-            throw Error(e)
-        }
+    fun getCurrentUser(): NitroGoogleUserInfo? {
+        // TODO: // Implement getCurrentUser
+        return null
     }
 
     suspend fun signIn(): NitroGoogleUserInfo {
         try {
+            val signInWithGoogleOption: GetSignInWithGoogleOption = GetSignInWithGoogleOption.Builder(config.webClientId)
+                .setNonce(config.nonce)
+                .setHostedDomainFilter(config.hostedDomain ?: "")
+                .build()
 
             val request: GetCredentialRequest = getRequest(signInWithGoogleOption)
             val result = credentialManager.getCredential(
                 request = request,
                 context = context.currentActivity ?: throw Error("No HybridNitroGoogleSSO context activity"),
             )
-
             val credential = result.credential
             return handleSignInResult(credential)
         } catch (e: GetCredentialException) {
+            e.printStackTrace()
             throw Error(e)
         }
     }
 
-    suspend fun signIn(s: String): NitroGoogleUserInfo {
+    suspend fun oneTapSignIn(): NitroGoogleUserInfo {
         try {
             val googleIdOption: GetGoogleIdOption = GetGoogleIdOption.Builder()
                 .setFilterByAuthorizedAccounts(false)
                 .setServerClientId(config.webClientId)
-                .setAutoSelectEnabled(false)
-                .setRequestVerifiedPhoneNumber(true)
+                .setAutoSelectEnabled(true)
                 .setNonce(config.nonce)
                 .build()
 
@@ -119,7 +100,6 @@ class NitroGoogleSSOImpl(
             else -> throw Error("Received an invalid credential")
         }
     }
-
 
     companion object {
         const val TAG = "NitroGoogleSSOImpl"
