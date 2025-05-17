@@ -47,7 +47,7 @@
   "homepage": "https://github.com/patrickkabwe/react-native-nitro-google-sso#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
-    "provenance": true
+    "access": "public"
   },
   "devDependencies": {
     "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
