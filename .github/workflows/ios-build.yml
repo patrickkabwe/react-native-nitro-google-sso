@@ -68,6 +68,14 @@ jobs:
       - name: Install Pods
         working-directory: example/ios
         run: pod install
+
+      - name: Create Secrets.xcconfig
+        working-directory: example/ios
+        run: |
+          echo "GID_CLIENT_ID=somevalue" > Secrets.xcconfig
+          echo "GID_SERVER_CLIENT_ID=somevalue" >> Secrets.xcconfig
+          echo "GID_URL_SCHEME=somevalue" >> Secrets.xcconfig
+
       - name: Build App
         working-directory: example/ios
         run: "set -o pipefail && xcodebuild \
@@ -118,6 +126,13 @@ jobs:
       - name: Install Pods
         working-directory: example/ios
         run: pod install
+
+      - name: Create Secrets.xcconfig
+        working-directory: example/ios
+        run: |
+          echo "GID_CLIENT_ID=somevalue" > Secrets.xcconfig
+          echo "GID_SERVER_CLIENT_ID=somevalue" >> Secrets.xcconfig
+          echo "GID_URL_SCHEME=somevalue" >> Secrets.xcconfig
       - name: Build App
         working-directory: example/ios
         run: "set -o pipefail && xcodebuild \
