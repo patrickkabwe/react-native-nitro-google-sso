@@ -11,6 +11,7 @@ jsconfig.json
 
 # Xcode
 #
+example/ios/Secrets.xcconfig
 build/
 *.pbxuser
 !default.pbxuser

@@ -20,7 +20,7 @@ export interface NitroGoogleSso extends HybridObject<{ ios: 'swift', android: 'k
      * const user = await NitroGoogleSso.signIn();
      * console.log(user);
      */
-    signIn(): Promise<NitroGoogleUserInfo | null>;
+    signIn(type?: 'button' | ''): Promise<NitroGoogleUserInfo | null>;
     /**
      * Sign out from Google
      * @example
