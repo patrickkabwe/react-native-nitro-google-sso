@@ -22,7 +22,6 @@ class NitroGoogleSSOImpl {
                     } else if let user = user {
                         continuation.resume(returning: self?.mapUserInfo(from: user))
                     } else {
-                        print("hello")
                         continuation.resume(returning: nil)
                     }
                 }
