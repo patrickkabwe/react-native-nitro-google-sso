@@ -1,20 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Alert, Button, StyleSheet, Text, View} from 'react-native';
-import NitroGoogleSso, {
+import NitroGoogleSSO, {
   type NitroGoogleUserInfo,
 } from 'react-native-nitro-google-sso';
 
-// const androidClientId =
-//   '2213441010-i61c6vqa083o3apd53ove07dpjrtvu34.apps.googleusercontent.com';
-const iosClientId =
-  '2213441010-lf1shrv01gk4vklac6tlmdi9ks7mn58t.apps.googleusercontent.com';
-const scopes = ['email', 'profile'];
+const iosClientId = process.env.GID_CLIENT_ID || '';
+const webClientId = process.env.GID_SERVER_CLIENT_ID || '';
 
-const webClientId =
-  '2213441010-bfa6hjn38moa8ijfp71kcu1bklvmqroh.apps.googleusercontent.com';
-
-NitroGoogleSso.configure({
-  scopes,
+NitroGoogleSSO.configure({
   iosClientId,
   webClientId,
   nonce: '1234567890',
@@ -27,7 +20,7 @@ function App(): React.JSX.Element {
   useEffect(() => {
     const checkUser = async () => {
       try {
-        const user = await NitroGoogleSso.getCurrentUser();
+        const user = await NitroGoogleSSO.getCurrentUser();
         setUser(user);
       } catch (error) {
         console.log('error', error);
@@ -64,7 +57,7 @@ function App(): React.JSX.Element {
                 {
                   text: 'Logout',
                   onPress: async () => {
-                    await NitroGoogleSso.signOut();
+                    await NitroGoogleSSO.signOut();
                     setUser(null);
                   },
                 },
@@ -78,7 +71,7 @@ function App(): React.JSX.Element {
           onPress={async () => {
             try {
               setIsLoading(true);
-              const user = await NitroGoogleSso.signIn();
+              const user = await NitroGoogleSSO.signIn();
               setUser(user);
             } catch (error) {
               console.log('error', error);
