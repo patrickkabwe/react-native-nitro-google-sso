@@ -38,8 +38,8 @@ class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec {
         }
     }
     
-    func oneTagSignIn() throws -> NitroModules.Promise<NitroGoogleUserInfo?> {
-        fatalError("oneTagSignIn() is not supported on iOS")
+    func oneTapSignIn() throws -> NitroModules.Promise<NitroGoogleUserInfo?> {
+        fatalError("oneTapSignIn() is not supported on iOS")
     }
     
     func signOut() throws -> Promise<Void> {

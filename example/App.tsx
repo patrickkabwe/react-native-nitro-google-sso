@@ -92,7 +92,7 @@ function App(): React.JSX.Element {
             <Button
               title="One Tag Login"
               onPress={async () => {
-                const user = await NitroGoogleSSO.oneTagSignIn();
+                const user = await NitroGoogleSSO.oneTapSignIn();
                 setUser(user);
               }}
             />

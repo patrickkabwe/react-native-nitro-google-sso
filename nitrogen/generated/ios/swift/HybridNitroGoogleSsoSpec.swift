@@ -16,7 +16,7 @@ public protocol HybridNitroGoogleSsoSpec_protocol: HybridObject {
   // Methods
   func configure(config: NitroGoogleSSOConfig) throws -> Void
   func signIn() throws -> Promise<NitroGoogleUserInfo?>
-  func oneTagSignIn() throws -> Promise<NitroGoogleUserInfo?>
+  func oneTapSignIn() throws -> Promise<NitroGoogleUserInfo?>
   func signOut() throws -> Promise<Void>
   func getCurrentUser() throws -> Promise<NitroGoogleUserInfo?>
 }

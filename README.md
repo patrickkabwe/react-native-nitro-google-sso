@@ -65,13 +65,13 @@ try {
 }
 ```
 
-### One Tag Sign In
+### One Tap Sign In
 
-To sign in with Google using the one tag sign in:
+To sign in with Google using the one tap sign in:
 
 ```typescript
 try {
-  const user = await NitroGoogleSSO.oneTagSignIn()
+  const user = await NitroGoogleSSO.oneTapSignIn()
   if (user) {
     console.log('User signed in:', user)
   } else {

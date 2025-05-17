@@ -28,10 +28,6 @@ export type NitroGoogleSSOConfig = {
     hostedDomain?: string;
 }
 
-export type NitroGoogleSSOOneTagSignInOptions = {
-    
-}
-
 export type NitroGoogleUserInfo = {
     email: string;
     idToken: string;

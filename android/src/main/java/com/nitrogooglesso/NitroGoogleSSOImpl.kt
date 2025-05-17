@@ -47,7 +47,7 @@ class NitroGoogleSSOImpl(
         }
     }
 
-    suspend fun oneTagSignIn(): NitroGoogleUserInfo {
+    suspend fun oneTapSignIn(): NitroGoogleUserInfo {
         try {
             val googleIdOption: GetGoogleIdOption = GetGoogleIdOption.Builder()
                 .setFilterByAuthorizedAccounts(false)

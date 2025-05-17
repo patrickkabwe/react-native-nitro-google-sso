@@ -137,9 +137,9 @@ public class HybridNitroGoogleSsoSpec_cxx {
   }
   
   @inline(__always)
-  public final func oneTagSignIn() -> bridge.Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____ {
+  public final func oneTapSignIn() -> bridge.Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____ {
     do {
-      let __result = try self.__implementation.oneTagSignIn()
+      let __result = try self.__implementation.oneTapSignIn()
       let __resultCpp = { () -> bridge.std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___ in
         let __promise = bridge.create_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___()
         let __promiseHolder = bridge.wrap_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___(__promise)

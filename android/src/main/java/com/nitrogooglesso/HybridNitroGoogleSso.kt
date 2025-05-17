@@ -22,9 +22,9 @@ class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec() {
         }
     }
 
-    override fun oneTagSignIn(): Promise<NitroGoogleUserInfo?> {
+    override fun oneTapSignIn(): Promise<NitroGoogleUserInfo?> {
         return Promise.async(mainScope) {
-            nitroGoogleSSOImpl.oneTagSignIn()
+            nitroGoogleSSOImpl.oneTapSignIn()
         }
     }
 

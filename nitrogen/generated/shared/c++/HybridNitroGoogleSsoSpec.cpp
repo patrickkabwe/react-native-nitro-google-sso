@@ -16,7 +16,7 @@ namespace margelo::nitro::nitrogooglesso {
     registerHybrids(this, [](Prototype& prototype) {
       prototype.registerHybridMethod("configure", &HybridNitroGoogleSsoSpec::configure);
       prototype.registerHybridMethod("signIn", &HybridNitroGoogleSsoSpec::signIn);
-      prototype.registerHybridMethod("oneTagSignIn", &HybridNitroGoogleSsoSpec::oneTagSignIn);
+      prototype.registerHybridMethod("oneTapSignIn", &HybridNitroGoogleSsoSpec::oneTapSignIn);
       prototype.registerHybridMethod("signOut", &HybridNitroGoogleSsoSpec::signOut);
       prototype.registerHybridMethod("getCurrentUser", &HybridNitroGoogleSsoSpec::getCurrentUser);
     });
