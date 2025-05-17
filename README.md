@@ -1,10 +1,13 @@
 # React Native Nitro Google SSO
 
-A React Native module for implementing Google Sign-In (SSO) functionality in your React Native applications using the Nitro framework.
+![React Native Nitro Google SSO Banner](https://github.com/user-attachments/assets/e35a76b0-a408-4666-999a-024d162f05fa)
+
+A Simple React Native module for implementing Google Sign-In (SSO) functionality in your React Native applications uses Google Sign-In SDK on iOS and Credential Manager on Android.
+
 
 ## Requirements
 
-- React Native v0.76.0 or higher
+- React Native v0.78.0 or higher
 - Node 18.0.0 or higher
 
 > [!IMPORTANT]  
@@ -33,10 +36,10 @@ Before using this module, you need to:
 First, you need to configure the module with your Google credentials. It's recommended to do this in your app's entry point:
 
 ```typescript
-import { NitroGoogleSso } from 'react-native-nitro-google-sso'
+import NitroGoogleSSO from 'react-native-nitro-google-sso'
 
 // Configure the module
-NitroGoogleSso.configure({
+NitroGoogleSSO.configure({
   iosClientId: 'YOUR_IOS_CLIENT_ID',
   webClientId: 'YOUR_WEB_CLIENT_ID',
   nonce: 'YOUR_NONCE', // Optional security nonce
@@ -51,7 +54,7 @@ To sign in with Google:
 
 ```typescript
 try {
-  const user = await NitroGoogleSso.signIn()
+  const user = await NitroGoogleSSO.signIn()
   if (user) {
     console.log('User signed in:', user)
   } else {
@@ -68,7 +71,7 @@ To get the currently signed-in user's information:
 
 ```typescript
 try {
-  const user = await NitroGoogleSso.getCurrentUser()
+  const user = await NitroGoogleSSO.getCurrentUser()
   if (user) {
     console.log('Current user:', user)
   } else {
@@ -85,7 +88,7 @@ To sign out the current user:
 
 ```typescript
 try {
-  await NitroGoogleSso.signOut()
+  await NitroGoogleSSO.signOut()
   console.log('User signed out successfully')
 } catch (error) {
   console.error('Sign out error:', error)
