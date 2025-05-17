@@ -1,0 +1,24 @@
+{
+  "$schema": "https://nitro.margelo.com/nitro.schema.json",
+  "cxxNamespace": [
+    "nitrogooglesso"
+  ],
+  "ios": {
+    "iosModuleName": "NitroGoogleSso"
+  },
+  "android": {
+    "androidNamespace": [
+      "nitrogooglesso"
+    ],
+    "androidCxxLibName": "NitroGoogleSso"
+  },
+  "autolinking": {
+    "NitroGoogleSso": {
+      "swift": "HybridNitroGoogleSso",
+      "kotlin": "HybridNitroGoogleSso"
+    }
+  },
+  "ignorePaths": [
+    "**/node_modules"
+  ]
+}
