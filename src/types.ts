@@ -1,11 +1,5 @@
 export type NitroGoogleSSOConfig = {
     /**
-     * The scopes are the permissions you are requesting from the user.
-     * Note: Currently works only for iOS.
-     * @example ['email', 'profile']
-     */
-    // scopes: string[];
-    /**
      * The nonce is a random string that is used to prevent replay attacks.
      * It is recommended to use a random string for each sign in request.
      */
