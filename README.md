@@ -11,7 +11,7 @@ A Simple React Native module for implementing Google Sign-In (SSO) functionality
 - Node 18.0.0 or higher
 
 > [!IMPORTANT]  
-> To Support `Nitro Views` you need to install React Native version v0.78.0 or higher.
+> To use `Google Sign-In Button` you need to install React Native version v0.78.0 or higher.
 
 ## Installation
 
