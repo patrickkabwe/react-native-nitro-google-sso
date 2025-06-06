@@ -1,3 +1,9 @@
+## [1.1.3](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.2...v1.1.3) (2025-06-06)
+
+### 🛠️ Other changes
+
+* add keywords for improved discoverability in package.json ([4e9b17b](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/4e9b17bc8d8e05bbb57697d2b784b0bf43c696a7))
+
 ## [1.1.2](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.1...v1.1.2) (2025-05-19)
 
 ### 🛠️ Other changes
