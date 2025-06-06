@@ -16,7 +16,14 @@
     "postcodegen": "bun --cwd example pod"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "nitro",
+    "nitro modules",
+    "google-sso",
+    "nitro-google-sso",
+    "react-native-google-signin",
+    "react-native-google-sso",
+    "react native sso"
   ],
   "files": [
     "src",
