@@ -1,3 +1,32 @@
+## [1.1.5](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.4...v1.1.5) (2025-07-21)
+
+### 🛠️ Other changes
+
+* **deps-dev:** bump conventional-changelog-conventionalcommits ([3e88e5e](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/3e88e5e721795982d3720f750a8ef8f45f8b7395))
+* **deps:** bump benchmark from 0.4.0 to 0.4.1 in /example ([15af2b4](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/15af2b40c98f789f4eaa2cb1b957acd85a5b7902))
+* **deps:** bump cocoapods from 1.15.2 to 1.16.2 in /example ([16aa7fd](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/16aa7fd1ad27a843bdc2bba74a6fe03dff3f4414))
+* **deps:** bump com.android.tools.build:gradle in /android ([20bc982](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/20bc98235655833df340e99d51e3c8b3abfea3da))
+
+## [1.1.4](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.3...v1.1.4) (2025-06-06)
+
+### 🛠️ Other changes
+
+* **deps-dev:** bump semantic-release from 24.2.4 to 24.2.5 ([02aad19](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/02aad192e1151bc06ead9a811c94728367133928))
+* **deps:** bump com.android.tools.build:gradle in /android ([a379691](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/a379691076666a4340fdea1b11c05f3473d07524))
+* update nitro-codegen and react-native-nitro-modules to version 0.26.1 in package.json and bun.lock ([df381d7](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/df381d735ad4aef350b18f805352a601dd00a234))
+
+## [1.1.3](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.2...v1.1.3) (2025-06-06)
+
+### 🛠️ Other changes
+
+* add keywords for improved discoverability in package.json ([4e9b17b](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/4e9b17bc8d8e05bbb57697d2b784b0bf43c696a7))
+
+## [1.1.2](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.1...v1.1.2) (2025-05-19)
+
+### 🛠️ Other changes
+
+* **release:** reorder @semantic-release/git configuration in release.config.js ([c89d9e8](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/c89d9e87ba17d25c008281b6a106b2f8238e219b))
+
 ## [1.1.1](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.0...v1.1.1) (2025-05-19)
 
 ### 🐛 Bug Fixes
