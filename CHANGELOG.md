@@ -1,3 +1,12 @@
+## [1.1.5](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.4...v1.1.5) (2025-07-21)
+
+### 🛠️ Other changes
+
+* **deps-dev:** bump conventional-changelog-conventionalcommits ([3e88e5e](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/3e88e5e721795982d3720f750a8ef8f45f8b7395))
+* **deps:** bump benchmark from 0.4.0 to 0.4.1 in /example ([15af2b4](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/15af2b40c98f789f4eaa2cb1b957acd85a5b7902))
+* **deps:** bump cocoapods from 1.15.2 to 1.16.2 in /example ([16aa7fd](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/16aa7fd1ad27a843bdc2bba74a6fe03dff3f4414))
+* **deps:** bump com.android.tools.build:gradle in /android ([20bc982](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/20bc98235655833df340e99d51e3c8b3abfea3da))
+
 ## [1.1.4](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.3...v1.1.4) (2025-06-06)
 
 ### 🛠️ Other changes

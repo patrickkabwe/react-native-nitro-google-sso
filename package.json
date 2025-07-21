@@ -1,6 +1,6 @@
 {
   "name": "react-native-nitro-google-sso",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Nitro module package",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
