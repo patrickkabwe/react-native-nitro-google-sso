@@ -1,3 +1,9 @@
+## [1.1.6](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.5...v1.1.6) (2025-07-21)
+
+### 🛠️ Other changes
+
+* bump up react native ([136bfcd](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/136bfcd6f85acc59b54ed9d3f8c549df386069c5))
+
 ## [1.1.5](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.4...v1.1.5) (2025-07-21)
 
 ### 🛠️ Other changes
