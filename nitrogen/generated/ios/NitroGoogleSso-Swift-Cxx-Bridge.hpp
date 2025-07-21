@@ -75,13 +75,13 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
    */
   class Func_void_std__optional_NitroGoogleUserInfo__Wrapper final {
   public:
-    explicit Func_void_std__optional_NitroGoogleUserInfo__Wrapper(std::function<void(const std::optional<NitroGoogleUserInfo>& /* result */)>&& func): _function(std::make_shared<std::function<void(const std::optional<NitroGoogleUserInfo>& /* result */)>>(std::move(func))) {}
+    explicit Func_void_std__optional_NitroGoogleUserInfo__Wrapper(std::function<void(const std::optional<NitroGoogleUserInfo>& /* result */)>&& func): _function(std::make_unique<std::function<void(const std::optional<NitroGoogleUserInfo>& /* result */)>>(std::move(func))) {}
     inline void call(std::optional<NitroGoogleUserInfo> result) const {
       _function->operator()(result);
     }
   private:
-    std::shared_ptr<std::function<void(const std::optional<NitroGoogleUserInfo>& /* result */)>> _function;
-  };
+    std::unique_ptr<std::function<void(const std::optional<NitroGoogleUserInfo>& /* result */)>> _function;
+  } SWIFT_NONCOPYABLE;
   Func_void_std__optional_NitroGoogleUserInfo_ create_Func_void_std__optional_NitroGoogleUserInfo_(void* _Nonnull swiftClosureWrapper);
   inline Func_void_std__optional_NitroGoogleUserInfo__Wrapper wrap_Func_void_std__optional_NitroGoogleUserInfo_(Func_void_std__optional_NitroGoogleUserInfo_ value) {
     return Func_void_std__optional_NitroGoogleUserInfo__Wrapper(std::move(value));
@@ -97,13 +97,13 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
    */
   class Func_void_std__exception_ptr_Wrapper final {
   public:
-    explicit Func_void_std__exception_ptr_Wrapper(std::function<void(const std::exception_ptr& /* error */)>&& func): _function(std::make_shared<std::function<void(const std::exception_ptr& /* error */)>>(std::move(func))) {}
+    explicit Func_void_std__exception_ptr_Wrapper(std::function<void(const std::exception_ptr& /* error */)>&& func): _function(std::make_unique<std::function<void(const std::exception_ptr& /* error */)>>(std::move(func))) {}
     inline void call(std::exception_ptr error) const {
       _function->operator()(error);
     }
   private:
-    std::shared_ptr<std::function<void(const std::exception_ptr& /* error */)>> _function;
-  };
+    std::unique_ptr<std::function<void(const std::exception_ptr& /* error */)>> _function;
+  } SWIFT_NONCOPYABLE;
   Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper);
   inline Func_void_std__exception_ptr_Wrapper wrap_Func_void_std__exception_ptr(Func_void_std__exception_ptr value) {
     return Func_void_std__exception_ptr_Wrapper(std::move(value));
@@ -131,13 +131,13 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
    */
   class Func_void_Wrapper final {
   public:
-    explicit Func_void_Wrapper(std::function<void()>&& func): _function(std::make_shared<std::function<void()>>(std::move(func))) {}
+    explicit Func_void_Wrapper(std::function<void()>&& func): _function(std::make_unique<std::function<void()>>(std::move(func))) {}
     inline void call() const {
       _function->operator()();
     }
   private:
-    std::shared_ptr<std::function<void()>> _function;
-  };
+    std::unique_ptr<std::function<void()>> _function;
+  } SWIFT_NONCOPYABLE;
   Func_void create_Func_void(void* _Nonnull swiftClosureWrapper);
   inline Func_void_Wrapper wrap_Func_void(Func_void value) {
     return Func_void_Wrapper(std::move(value));
