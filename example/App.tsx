@@ -3,6 +3,7 @@ import {Alert, Button, Platform, StyleSheet, Text, View} from 'react-native';
 import NitroGoogleSSO, {
   type NitroGoogleUserInfo,
 } from 'react-native-nitro-google-sso';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
 const iosClientId =
   process.env.GID_CLIENT_ID ||
@@ -18,6 +19,14 @@ NitroGoogleSSO.configure({
 });
 
 function App(): React.JSX.Element {
+  return (
+    <SafeAreaProvider>
+      <AppContent />
+    </SafeAreaProvider>
+  );
+}
+
+function AppContent(): React.JSX.Element {
   const [user, setUser] = useState<NitroGoogleUserInfo | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -36,7 +45,7 @@ function App(): React.JSX.Element {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.text}>Google SSO</Text>
       {isLoading ? (
         <Text>Loading...</Text>
@@ -99,7 +108,7 @@ function App(): React.JSX.Element {
           )}
         </>
       )}
-    </View>
+    </SafeAreaView>
   );
 }
 

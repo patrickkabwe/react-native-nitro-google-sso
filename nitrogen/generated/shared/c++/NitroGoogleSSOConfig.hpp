@@ -20,8 +20,8 @@
 
 
 
-#include <optional>
 #include <string>
+#include <optional>
 
 namespace margelo::nitro::nitrogooglesso {
 
@@ -44,21 +44,19 @@ namespace margelo::nitro::nitrogooglesso {
 
 namespace margelo::nitro {
 
-  using namespace margelo::nitro::nitrogooglesso;
-
   // C++ NitroGoogleSSOConfig <> JS NitroGoogleSSOConfig (object)
   template <>
-  struct JSIConverter<NitroGoogleSSOConfig> final {
-    static inline NitroGoogleSSOConfig fromJSI(jsi::Runtime& runtime, const jsi::Value& arg) {
+  struct JSIConverter<margelo::nitro::nitrogooglesso::NitroGoogleSSOConfig> final {
+    static inline margelo::nitro::nitrogooglesso::NitroGoogleSSOConfig fromJSI(jsi::Runtime& runtime, const jsi::Value& arg) {
       jsi::Object obj = arg.asObject(runtime);
-      return NitroGoogleSSOConfig(
+      return margelo::nitro::nitrogooglesso::NitroGoogleSSOConfig(
         JSIConverter<std::optional<std::string>>::fromJSI(runtime, obj.getProperty(runtime, "nonce")),
         JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, "iosClientId")),
         JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, "webClientId")),
         JSIConverter<std::optional<std::string>>::fromJSI(runtime, obj.getProperty(runtime, "hostedDomain"))
       );
     }
-    static inline jsi::Value toJSI(jsi::Runtime& runtime, const NitroGoogleSSOConfig& arg) {
+    static inline jsi::Value toJSI(jsi::Runtime& runtime, const margelo::nitro::nitrogooglesso::NitroGoogleSSOConfig& arg) {
       jsi::Object obj(runtime);
       obj.setProperty(runtime, "nonce", JSIConverter<std::optional<std::string>>::toJSI(runtime, arg.nonce));
       obj.setProperty(runtime, "iosClientId", JSIConverter<std::string>::toJSI(runtime, arg.iosClientId));

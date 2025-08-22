@@ -47,14 +47,12 @@ namespace margelo::nitro::nitrogooglesso {
 
 namespace margelo::nitro {
 
-  using namespace margelo::nitro::nitrogooglesso;
-
   // C++ NitroGoogleUserInfo <> JS NitroGoogleUserInfo (object)
   template <>
-  struct JSIConverter<NitroGoogleUserInfo> final {
-    static inline NitroGoogleUserInfo fromJSI(jsi::Runtime& runtime, const jsi::Value& arg) {
+  struct JSIConverter<margelo::nitro::nitrogooglesso::NitroGoogleUserInfo> final {
+    static inline margelo::nitro::nitrogooglesso::NitroGoogleUserInfo fromJSI(jsi::Runtime& runtime, const jsi::Value& arg) {
       jsi::Object obj = arg.asObject(runtime);
-      return NitroGoogleUserInfo(
+      return margelo::nitro::nitrogooglesso::NitroGoogleUserInfo(
         JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, "email")),
         JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, "idToken")),
         JSIConverter<std::optional<std::string>>::fromJSI(runtime, obj.getProperty(runtime, "givenName")),
@@ -64,7 +62,7 @@ namespace margelo::nitro {
         JSIConverter<std::optional<std::string>>::fromJSI(runtime, obj.getProperty(runtime, "profilePictureUri"))
       );
     }
-    static inline jsi::Value toJSI(jsi::Runtime& runtime, const NitroGoogleUserInfo& arg) {
+    static inline jsi::Value toJSI(jsi::Runtime& runtime, const margelo::nitro::nitrogooglesso::NitroGoogleUserInfo& arg) {
       jsi::Object obj(runtime);
       obj.setProperty(runtime, "email", JSIConverter<std::string>::toJSI(runtime, arg.email));
       obj.setProperty(runtime, "idToken", JSIConverter<std::string>::toJSI(runtime, arg.idToken));

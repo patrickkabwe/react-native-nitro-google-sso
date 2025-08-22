@@ -1,127 +1,127 @@
 {
-  "name": "react-native-nitro-google-sso",
-  "version": "1.1.5",
-  "description": "Nitro module package",
-  "main": "./lib/commonjs/index.js",
-  "module": "./lib/module/index.js",
-  "types": "./lib/typescript/src/index.d.ts",
-  "react-native": "src/index",
-  "source": "src/index",
-  "scripts": {
-    "typecheck": "tsc --noEmit",
-    "clean": "git clean -dfX",
-    "release": "semantic-release",
-    "build": "bun run typecheck && bob build",
-    "codegen": "nitro-codegen --logLevel=\"debug\" && bun run build && node post-script.js",
-    "postcodegen": "bun --cwd example pod"
-  },
-  "keywords": [
-    "react-native",
-    "nitro",
-    "nitro modules",
-    "google-sso",
-    "nitro-google-sso",
-    "react-native-google-signin",
-    "react-native-google-sso",
-    "react native sso"
-  ],
-  "files": [
-    "src",
-    "react-native.config.js",
-    "lib",
-    "nitrogen",
-    "cpp",
-    "android/build.gradle",
-    "android/gradle.properties",
-    "android/CMakeLists.txt",
-    "android/src",
-    "ios/**/*.h",
-    "ios/**/*.m",
-    "ios/**/*.mm",
-    "ios/**/*.cpp",
-    "ios/**/*.swift",
-    "app.plugin.js",
-    "*.podspec",
-    "README.md"
-  ],
-  "workspaces": [
-    "example"
-  ],
-  "repository": "https://github.com/patrickkabwe/react-native-nitro-google-sso.git",
-  "author": "Patrick Kabwe",
-  "license": "MIT",
-  "bugs": "https://github.com/patrickkabwe/react-native-nitro-google-sso/issues",
-  "homepage": "https://github.com/patrickkabwe/react-native-nitro-google-sso#readme",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
-  },
-  "devDependencies": {
-    "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@types/jest": "^29.5.12",
-    "@types/react": "^19.1.0",
-    "conventional-changelog-conventionalcommits": "^9.1.0",
-    "nitro-codegen": "^0.26.4",
-    "react": "19.1.0",
-    "react-native": "0.80.1",
-    "react-native-builder-bob": "^0.37.0",
-    "react-native-nitro-modules": "^0.26.4",
-    "semantic-release": "^24.2.4",
-    "typescript": "5.0.4"
-  },
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*",
-    "react-native-nitro-modules": "*"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@react-native",
-      "prettier"
+    "name": "react-native-nitro-google-sso",
+    "version": "1.1.5",
+    "description": "Nitro module package",
+    "main": "./lib/commonjs/index.js",
+    "module": "./lib/module/index.js",
+    "types": "./lib/typescript/src/index.d.ts",
+    "react-native": "src/index",
+    "source": "src/index",
+    "scripts": {
+        "typecheck": "tsc --noEmit",
+        "clean": "git clean -dfX",
+        "release": "semantic-release",
+        "build": "bun run typecheck && bob build",
+        "codegen": "nitro-codegen --logLevel=\"debug\" && bun run build && node post-script.js",
+        "postcodegen": "bun --cwd example pod"
+    },
+    "keywords": [
+        "react-native",
+        "nitro",
+        "nitro modules",
+        "google-sso",
+        "nitro-google-sso",
+        "react-native-google-signin",
+        "react-native-google-sso",
+        "react native sso"
     ],
-    "plugins": [
-      "prettier"
+    "files": [
+        "src",
+        "react-native.config.js",
+        "lib",
+        "nitrogen",
+        "cpp",
+        "android/build.gradle",
+        "android/gradle.properties",
+        "android/CMakeLists.txt",
+        "android/src",
+        "ios/**/*.h",
+        "ios/**/*.m",
+        "ios/**/*.mm",
+        "ios/**/*.cpp",
+        "ios/**/*.swift",
+        "app.plugin.js",
+        "*.podspec",
+        "README.md"
     ],
-    "rules": {
-      "prettier/prettier": [
-        "warn",
-        {
-          "quoteProps": "consistent",
-          "singleQuote": true,
-          "tabWidth": 2,
-          "trailingComma": "es5",
-          "useTabs": false
+    "workspaces": [
+        "example"
+    ],
+    "repository": "https://github.com/patrickkabwe/react-native-nitro-google-sso.git",
+    "author": "Patrick Kabwe",
+    "license": "MIT",
+    "bugs": "https://github.com/patrickkabwe/react-native-nitro-google-sso/issues",
+    "homepage": "https://github.com/patrickkabwe/react-native-nitro-google-sso#readme",
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/",
+        "access": "public"
+    },
+    "devDependencies": {
+        "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
+        "@semantic-release/changelog": "^6.0.3",
+        "@semantic-release/git": "^10.0.1",
+        "@types/jest": "^29.5.12",
+        "@types/react": "^19.1.0",
+        "conventional-changelog-conventionalcommits": "^9.1.0",
+        "nitro-codegen": "^0.28.1",
+        "react": "19.1.0",
+        "react-native": "0.81.0",
+        "react-native-builder-bob": "^0.37.0",
+        "react-native-nitro-modules": "^0.28.1",
+        "semantic-release": "^24.2.4",
+        "typescript": "5.0.4"
+    },
+    "peerDependencies": {
+        "react": "*",
+        "react-native": "*",
+        "react-native-nitro-modules": "*"
+    },
+    "eslintConfig": {
+        "root": true,
+        "extends": [
+            "@react-native",
+            "prettier"
+        ],
+        "plugins": [
+            "prettier"
+        ],
+        "rules": {
+            "prettier/prettier": [
+                "warn",
+                {
+                    "quoteProps": "consistent",
+                    "singleQuote": true,
+                    "tabWidth": 2,
+                    "trailingComma": "es5",
+                    "useTabs": false
+                }
+            ]
         }
-      ]
+    },
+    "eslintIgnore": [
+        "node_modules/",
+        "lib/"
+    ],
+    "prettier": {
+        "quoteProps": "consistent",
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "es5",
+        "useTabs": false,
+        "semi": false
+    },
+    "react-native-builder-bob": {
+        "source": "src",
+        "output": "lib",
+        "targets": [
+            "commonjs",
+            "module",
+            [
+                "typescript",
+                {
+                    "project": "tsconfig.json"
+                }
+            ]
+        ]
     }
-  },
-  "eslintIgnore": [
-    "node_modules/",
-    "lib/"
-  ],
-  "prettier": {
-    "quoteProps": "consistent",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false,
-    "semi": false
-  },
-  "react-native-builder-bob": {
-    "source": "src",
-    "output": "lib",
-    "targets": [
-      "commonjs",
-      "module",
-      [
-        "typescript",
-        {
-          "project": "tsconfig.json"
-        }
-      ]
-    ]
-  }
 }

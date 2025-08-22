@@ -29,6 +29,7 @@ namespace margelo::nitro::nitrogooglesso {
     // C++ constructor (called from Java via `initHybrid()`)
     explicit JHybridNitroGoogleSsoSpec(jni::alias_ref<jhybridobject> jThis) :
       HybridObject(HybridNitroGoogleSsoSpec::TAG),
+      HybridBase(jThis),
       _javaPart(jni::make_global(jThis)) {}
 
   public:
@@ -39,6 +40,7 @@ namespace margelo::nitro::nitrogooglesso {
 
   public:
     size_t getExternalMemorySize() noexcept override;
+    void dispose() noexcept override;
 
   public:
     inline const jni::global_ref<JHybridNitroGoogleSsoSpec::javaobject>& getJavaPart() const noexcept {

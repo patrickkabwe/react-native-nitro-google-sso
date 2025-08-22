@@ -6,5 +6,7 @@
     "paths": {
       "react-native-nitro-google-sso": ["../src"]
     }
-  }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["**/node_modules", "**/Pods"]
 }

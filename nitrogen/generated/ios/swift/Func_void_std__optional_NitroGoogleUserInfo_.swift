@@ -7,6 +7,7 @@
 
 import NitroModules
 
+
 /**
  * Wraps a Swift `(_ value: NitroGoogleUserInfo?) -> Void` as a class.
  * This class can be used from C++, e.g. to wrap the Swift closure as a `std::function`.
@@ -23,7 +24,8 @@ public final class Func_void_std__optional_NitroGoogleUserInfo_ {
   @inline(__always)
   public func call(value: bridge.std__optional_NitroGoogleUserInfo_) -> Void {
     self.closure({ () -> NitroGoogleUserInfo? in
-      if let __unwrapped = value.value {
+      if bridge.has_value_std__optional_NitroGoogleUserInfo_(value) {
+        let __unwrapped = bridge.get_std__optional_NitroGoogleUserInfo_(value)
         return __unwrapped
       } else {
         return nil

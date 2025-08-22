@@ -40,8 +40,14 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
    * Specialized version of `std::optional<std::string>`.
    */
   using std__optional_std__string_ = std::optional<std::string>;
-  inline std::optional<std::string> create_std__optional_std__string_(const std::string& value) {
+  inline std::optional<std::string> create_std__optional_std__string_(const std::string& value) noexcept {
     return std::optional<std::string>(value);
+  }
+  inline bool has_value_std__optional_std__string_(const std::optional<std::string>& optional) noexcept {
+    return optional.has_value();
+  }
+  inline std::string get_std__optional_std__string_(const std::optional<std::string>& optional) noexcept {
+    return *optional;
   }
   
   // pragma MARK: std::optional<NitroGoogleUserInfo>
@@ -49,8 +55,14 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
    * Specialized version of `std::optional<NitroGoogleUserInfo>`.
    */
   using std__optional_NitroGoogleUserInfo_ = std::optional<NitroGoogleUserInfo>;
-  inline std::optional<NitroGoogleUserInfo> create_std__optional_NitroGoogleUserInfo_(const NitroGoogleUserInfo& value) {
+  inline std::optional<NitroGoogleUserInfo> create_std__optional_NitroGoogleUserInfo_(const NitroGoogleUserInfo& value) noexcept {
     return std::optional<NitroGoogleUserInfo>(value);
+  }
+  inline bool has_value_std__optional_NitroGoogleUserInfo_(const std::optional<NitroGoogleUserInfo>& optional) noexcept {
+    return optional.has_value();
+  }
+  inline NitroGoogleUserInfo get_std__optional_NitroGoogleUserInfo_(const std::optional<NitroGoogleUserInfo>& optional) noexcept {
+    return *optional;
   }
   
   // pragma MARK: std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>>
@@ -58,10 +70,10 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
    * Specialized version of `std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>>`.
    */
   using std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___ = std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>>;
-  inline std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> create_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___() {
+  inline std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> create_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___() noexcept {
     return Promise<std::optional<NitroGoogleUserInfo>>::create();
   }
-  inline PromiseHolder<std::optional<NitroGoogleUserInfo>> wrap_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___(std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> promise) {
+  inline PromiseHolder<std::optional<NitroGoogleUserInfo>> wrap_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___(std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> promise) noexcept {
     return PromiseHolder<std::optional<NitroGoogleUserInfo>>(std::move(promise));
   }
   
@@ -76,14 +88,14 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
   class Func_void_std__optional_NitroGoogleUserInfo__Wrapper final {
   public:
     explicit Func_void_std__optional_NitroGoogleUserInfo__Wrapper(std::function<void(const std::optional<NitroGoogleUserInfo>& /* result */)>&& func): _function(std::make_unique<std::function<void(const std::optional<NitroGoogleUserInfo>& /* result */)>>(std::move(func))) {}
-    inline void call(std::optional<NitroGoogleUserInfo> result) const {
+    inline void call(std::optional<NitroGoogleUserInfo> result) const noexcept {
       _function->operator()(result);
     }
   private:
     std::unique_ptr<std::function<void(const std::optional<NitroGoogleUserInfo>& /* result */)>> _function;
   } SWIFT_NONCOPYABLE;
-  Func_void_std__optional_NitroGoogleUserInfo_ create_Func_void_std__optional_NitroGoogleUserInfo_(void* _Nonnull swiftClosureWrapper);
-  inline Func_void_std__optional_NitroGoogleUserInfo__Wrapper wrap_Func_void_std__optional_NitroGoogleUserInfo_(Func_void_std__optional_NitroGoogleUserInfo_ value) {
+  Func_void_std__optional_NitroGoogleUserInfo_ create_Func_void_std__optional_NitroGoogleUserInfo_(void* _Nonnull swiftClosureWrapper) noexcept;
+  inline Func_void_std__optional_NitroGoogleUserInfo__Wrapper wrap_Func_void_std__optional_NitroGoogleUserInfo_(Func_void_std__optional_NitroGoogleUserInfo_ value) noexcept {
     return Func_void_std__optional_NitroGoogleUserInfo__Wrapper(std::move(value));
   }
   
@@ -98,14 +110,14 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
   class Func_void_std__exception_ptr_Wrapper final {
   public:
     explicit Func_void_std__exception_ptr_Wrapper(std::function<void(const std::exception_ptr& /* error */)>&& func): _function(std::make_unique<std::function<void(const std::exception_ptr& /* error */)>>(std::move(func))) {}
-    inline void call(std::exception_ptr error) const {
+    inline void call(std::exception_ptr error) const noexcept {
       _function->operator()(error);
     }
   private:
     std::unique_ptr<std::function<void(const std::exception_ptr& /* error */)>> _function;
   } SWIFT_NONCOPYABLE;
-  Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper);
-  inline Func_void_std__exception_ptr_Wrapper wrap_Func_void_std__exception_ptr(Func_void_std__exception_ptr value) {
+  Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper) noexcept;
+  inline Func_void_std__exception_ptr_Wrapper wrap_Func_void_std__exception_ptr(Func_void_std__exception_ptr value) noexcept {
     return Func_void_std__exception_ptr_Wrapper(std::move(value));
   }
   
@@ -114,10 +126,10 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
    * Specialized version of `std::shared_ptr<Promise<void>>`.
    */
   using std__shared_ptr_Promise_void__ = std::shared_ptr<Promise<void>>;
-  inline std::shared_ptr<Promise<void>> create_std__shared_ptr_Promise_void__() {
+  inline std::shared_ptr<Promise<void>> create_std__shared_ptr_Promise_void__() noexcept {
     return Promise<void>::create();
   }
-  inline PromiseHolder<void> wrap_std__shared_ptr_Promise_void__(std::shared_ptr<Promise<void>> promise) {
+  inline PromiseHolder<void> wrap_std__shared_ptr_Promise_void__(std::shared_ptr<Promise<void>> promise) noexcept {
     return PromiseHolder<void>(std::move(promise));
   }
   
@@ -132,53 +144,53 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
   class Func_void_Wrapper final {
   public:
     explicit Func_void_Wrapper(std::function<void()>&& func): _function(std::make_unique<std::function<void()>>(std::move(func))) {}
-    inline void call() const {
+    inline void call() const noexcept {
       _function->operator()();
     }
   private:
     std::unique_ptr<std::function<void()>> _function;
   } SWIFT_NONCOPYABLE;
-  Func_void create_Func_void(void* _Nonnull swiftClosureWrapper);
-  inline Func_void_Wrapper wrap_Func_void(Func_void value) {
+  Func_void create_Func_void(void* _Nonnull swiftClosureWrapper) noexcept;
+  inline Func_void_Wrapper wrap_Func_void(Func_void value) noexcept {
     return Func_void_Wrapper(std::move(value));
   }
   
-  // pragma MARK: std::shared_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpec>
+  // pragma MARK: std::shared_ptr<HybridNitroGoogleSsoSpec>
   /**
-   * Specialized version of `std::shared_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpec>`.
+   * Specialized version of `std::shared_ptr<HybridNitroGoogleSsoSpec>`.
    */
-  using std__shared_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_ = std::shared_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpec>;
-  std::shared_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpec> create_std__shared_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_(void* _Nonnull swiftUnsafePointer);
-  void* _Nonnull get_std__shared_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_(std__shared_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_ cppType);
+  using std__shared_ptr_HybridNitroGoogleSsoSpec_ = std::shared_ptr<HybridNitroGoogleSsoSpec>;
+  std::shared_ptr<HybridNitroGoogleSsoSpec> create_std__shared_ptr_HybridNitroGoogleSsoSpec_(void* _Nonnull swiftUnsafePointer) noexcept;
+  void* _Nonnull get_std__shared_ptr_HybridNitroGoogleSsoSpec_(std__shared_ptr_HybridNitroGoogleSsoSpec_ cppType) noexcept;
   
-  // pragma MARK: std::weak_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpec>
-  using std__weak_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_ = std::weak_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpec>;
-  inline std__weak_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_ weakify_std__shared_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_(const std::shared_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpec>& strong) { return strong; }
+  // pragma MARK: std::weak_ptr<HybridNitroGoogleSsoSpec>
+  using std__weak_ptr_HybridNitroGoogleSsoSpec_ = std::weak_ptr<HybridNitroGoogleSsoSpec>;
+  inline std__weak_ptr_HybridNitroGoogleSsoSpec_ weakify_std__shared_ptr_HybridNitroGoogleSsoSpec_(const std::shared_ptr<HybridNitroGoogleSsoSpec>& strong) noexcept { return strong; }
   
   // pragma MARK: Result<void>
   using Result_void_ = Result<void>;
-  inline Result_void_ create_Result_void_() {
+  inline Result_void_ create_Result_void_() noexcept {
     return Result<void>::withValue();
   }
-  inline Result_void_ create_Result_void_(const std::exception_ptr& error) {
+  inline Result_void_ create_Result_void_(const std::exception_ptr& error) noexcept {
     return Result<void>::withError(error);
   }
   
   // pragma MARK: Result<std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>>>
   using Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____ = Result<std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>>>;
-  inline Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____ create_Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____(const std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>>& value) {
+  inline Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____ create_Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____(const std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>>& value) noexcept {
     return Result<std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>>>::withValue(value);
   }
-  inline Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____ create_Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____(const std::exception_ptr& error) {
+  inline Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____ create_Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____(const std::exception_ptr& error) noexcept {
     return Result<std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>>>::withError(error);
   }
   
   // pragma MARK: Result<std::shared_ptr<Promise<void>>>
   using Result_std__shared_ptr_Promise_void___ = Result<std::shared_ptr<Promise<void>>>;
-  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::shared_ptr<Promise<void>>& value) {
+  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::shared_ptr<Promise<void>>& value) noexcept {
     return Result<std::shared_ptr<Promise<void>>>::withValue(value);
   }
-  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::exception_ptr& error) {
+  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::exception_ptr& error) noexcept {
     return Result<std::shared_ptr<Promise<void>>>::withError(error);
   }
 

@@ -24,7 +24,7 @@
   HybridObjectRegistry::registerHybridObjectConstructor(
     "NitroGoogleSso",
     []() -> std::shared_ptr<HybridObject> {
-      std::shared_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpec> hybridObject = NitroGoogleSso::NitroGoogleSsoAutolinking::createNitroGoogleSso();
+      std::shared_ptr<HybridNitroGoogleSsoSpec> hybridObject = NitroGoogleSso::NitroGoogleSsoAutolinking::createNitroGoogleSso();
       return hybridObject;
     }
   );

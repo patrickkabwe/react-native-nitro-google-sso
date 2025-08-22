@@ -18,10 +18,10 @@ namespace margelo::nitro::nitrogooglesso { struct NitroGoogleSSOConfig; }
 namespace margelo::nitro::nitrogooglesso { struct NitroGoogleUserInfo; }
 
 #include "NitroGoogleSSOConfig.hpp"
-#include <optional>
 #include <string>
-#include <NitroModules/Promise.hpp>
+#include <optional>
 #include "NitroGoogleUserInfo.hpp"
+#include <NitroModules/Promise.hpp>
 
 #include "NitroGoogleSso-Swift-Cxx-Umbrella.hpp"
 
@@ -51,9 +51,11 @@ namespace margelo::nitro::nitrogooglesso {
     }
 
   public:
-    // Get memory pressure
     inline size_t getExternalMemorySize() noexcept override {
       return _swiftPart.getMemorySize();
+    }
+    void dispose() noexcept override {
+      _swiftPart.dispose();
     }
 
   public:
