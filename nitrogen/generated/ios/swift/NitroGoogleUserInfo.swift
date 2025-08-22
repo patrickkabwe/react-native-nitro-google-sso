@@ -78,7 +78,8 @@ public extension NitroGoogleUserInfo {
     @inline(__always)
     get {
       return { () -> String? in
-        if let __unwrapped = self.__givenName.value {
+        if bridge.has_value_std__optional_std__string_(self.__givenName) {
+          let __unwrapped = bridge.get_std__optional_std__string_(self.__givenName)
           return String(__unwrapped)
         } else {
           return nil
@@ -101,7 +102,8 @@ public extension NitroGoogleUserInfo {
     @inline(__always)
     get {
       return { () -> String? in
-        if let __unwrapped = self.__familyName.value {
+        if bridge.has_value_std__optional_std__string_(self.__familyName) {
+          let __unwrapped = bridge.get_std__optional_std__string_(self.__familyName)
           return String(__unwrapped)
         } else {
           return nil
@@ -124,7 +126,8 @@ public extension NitroGoogleUserInfo {
     @inline(__always)
     get {
       return { () -> String? in
-        if let __unwrapped = self.__phoneNumber.value {
+        if bridge.has_value_std__optional_std__string_(self.__phoneNumber) {
+          let __unwrapped = bridge.get_std__optional_std__string_(self.__phoneNumber)
           return String(__unwrapped)
         } else {
           return nil
@@ -147,7 +150,8 @@ public extension NitroGoogleUserInfo {
     @inline(__always)
     get {
       return { () -> String? in
-        if let __unwrapped = self.__displayName.value {
+        if bridge.has_value_std__optional_std__string_(self.__displayName) {
+          let __unwrapped = bridge.get_std__optional_std__string_(self.__displayName)
           return String(__unwrapped)
         } else {
           return nil
@@ -170,7 +174,8 @@ public extension NitroGoogleUserInfo {
     @inline(__always)
     get {
       return { () -> String? in
-        if let __unwrapped = self.__profilePictureUri.value {
+        if bridge.has_value_std__optional_std__string_(self.__profilePictureUri) {
+          let __unwrapped = bridge.get_std__optional_std__string_(self.__profilePictureUri)
           return String(__unwrapped)
         } else {
           return nil

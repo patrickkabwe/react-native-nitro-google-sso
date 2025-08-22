@@ -16,7 +16,6 @@
 #include <NitroModules/HybridObjectRegistry.hpp>
 
 #include "JHybridNitroGoogleSsoSpec.hpp"
-#include <NitroModules/JNISharedPtr.hpp>
 #include <NitroModules/DefaultConstructableObject.hpp>
 
 namespace margelo::nitro::nitrogooglesso {
@@ -37,7 +36,7 @@ int initialize(JavaVM* vm) {
         static DefaultConstructableObject<JHybridNitroGoogleSsoSpec::javaobject> object("com/nitrogooglesso/HybridNitroGoogleSso");
         auto instance = object.create();
         auto globalRef = jni::make_global(instance);
-        return JNISharedPtr::make_shared_from_jni<JHybridNitroGoogleSsoSpec>(globalRef);
+        return globalRef->cthis()->shared();
       }
     );
   });

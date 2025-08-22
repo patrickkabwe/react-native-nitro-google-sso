@@ -38,7 +38,8 @@ public extension NitroGoogleSSOConfig {
     @inline(__always)
     get {
       return { () -> String? in
-        if let __unwrapped = self.__nonce.value {
+        if bridge.has_value_std__optional_std__string_(self.__nonce) {
+          let __unwrapped = bridge.get_std__optional_std__string_(self.__nonce)
           return String(__unwrapped)
         } else {
           return nil
@@ -83,7 +84,8 @@ public extension NitroGoogleSSOConfig {
     @inline(__always)
     get {
       return { () -> String? in
-        if let __unwrapped = self.__hostedDomain.value {
+        if bridge.has_value_std__optional_std__string_(self.__hostedDomain) {
+          let __unwrapped = bridge.get_std__optional_std__string_(self.__hostedDomain)
           return String(__unwrapped)
         } else {
           return nil

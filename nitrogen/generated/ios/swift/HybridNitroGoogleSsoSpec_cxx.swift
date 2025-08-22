@@ -17,7 +17,7 @@ import NitroModules
  * - Other HybridObjects need to be wrapped/unwrapped from the Swift TCxx wrapper
  * - Throwing methods need to be wrapped with a Result<T, Error> type, as exceptions cannot be propagated to C++
  */
-public class HybridNitroGoogleSsoSpec_cxx {
+open class HybridNitroGoogleSsoSpec_cxx {
   /**
    * The Swift <> C++ bridge's namespace (`margelo::nitro::nitrogooglesso::bridge::swift`)
    * from `NitroGoogleSso-Swift-Cxx-Bridge.hpp`.
@@ -33,7 +33,7 @@ public class HybridNitroGoogleSsoSpec_cxx {
   /**
    * Holds a weak pointer to the C++ class that wraps the Swift class.
    */
-  private var __cxxPart: bridge.std__weak_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_
+  private var __cxxPart: bridge.std__weak_ptr_HybridNitroGoogleSsoSpec_
 
   /**
    * Create a new `HybridNitroGoogleSsoSpec_cxx` that wraps the given `HybridNitroGoogleSsoSpec`.
@@ -72,15 +72,15 @@ public class HybridNitroGoogleSsoSpec_cxx {
 
   /**
    * Gets (or creates) the C++ part of this Hybrid Object.
-   * The C++ part is a `std::shared_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpec>`.
+   * The C++ part is a `std::shared_ptr<HybridNitroGoogleSsoSpec>`.
    */
-  public func getCxxPart() -> bridge.std__shared_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_ {
+  public func getCxxPart() -> bridge.std__shared_ptr_HybridNitroGoogleSsoSpec_ {
     let cachedCxxPart = self.__cxxPart.lock()
     if cachedCxxPart.__convertToBool() {
       return cachedCxxPart
     } else {
-      let newCxxPart = bridge.create_std__shared_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_(self.toUnsafe())
-      __cxxPart = bridge.weakify_std__shared_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_(newCxxPart)
+      let newCxxPart = bridge.create_std__shared_ptr_HybridNitroGoogleSsoSpec_(self.toUnsafe())
+      __cxxPart = bridge.weakify_std__shared_ptr_HybridNitroGoogleSsoSpec_(newCxxPart)
       return newCxxPart
     }
   }
@@ -94,6 +94,15 @@ public class HybridNitroGoogleSsoSpec_cxx {
   @inline(__always)
   public var memorySize: Int {
     return MemoryHelper.getSizeOf(self.__implementation) + self.__implementation.memorySize
+  }
+
+  /**
+   * Call dispose() on the Swift class.
+   * This _may_ be called manually from JS.
+   */
+  @inline(__always)
+  public func dispose() {
+    self.__implementation.dispose()
   }
 
   // Properties

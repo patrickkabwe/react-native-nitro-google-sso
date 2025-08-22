@@ -14,7 +14,7 @@
 namespace margelo::nitro::nitrogooglesso::bridge::swift {
 
   // pragma MARK: std::function<void(const std::optional<NitroGoogleUserInfo>& /* result */)>
-  Func_void_std__optional_NitroGoogleUserInfo_ create_Func_void_std__optional_NitroGoogleUserInfo_(void* _Nonnull swiftClosureWrapper) {
+  Func_void_std__optional_NitroGoogleUserInfo_ create_Func_void_std__optional_NitroGoogleUserInfo_(void* _Nonnull swiftClosureWrapper) noexcept {
     auto swiftClosure = NitroGoogleSso::Func_void_std__optional_NitroGoogleUserInfo_::fromUnsafe(swiftClosureWrapper);
     return [swiftClosure = std::move(swiftClosure)](const std::optional<NitroGoogleUserInfo>& result) mutable -> void {
       swiftClosure.call(result);
@@ -22,7 +22,7 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
   }
   
   // pragma MARK: std::function<void(const std::exception_ptr& /* error */)>
-  Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper) {
+  Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper) noexcept {
     auto swiftClosure = NitroGoogleSso::Func_void_std__exception_ptr::fromUnsafe(swiftClosureWrapper);
     return [swiftClosure = std::move(swiftClosure)](const std::exception_ptr& error) mutable -> void {
       swiftClosure.call(error);
@@ -30,25 +30,25 @@ namespace margelo::nitro::nitrogooglesso::bridge::swift {
   }
   
   // pragma MARK: std::function<void()>
-  Func_void create_Func_void(void* _Nonnull swiftClosureWrapper) {
+  Func_void create_Func_void(void* _Nonnull swiftClosureWrapper) noexcept {
     auto swiftClosure = NitroGoogleSso::Func_void::fromUnsafe(swiftClosureWrapper);
     return [swiftClosure = std::move(swiftClosure)]() mutable -> void {
       swiftClosure.call();
     };
   }
   
-  // pragma MARK: std::shared_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpec>
-  std::shared_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpec> create_std__shared_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_(void* _Nonnull swiftUnsafePointer) {
+  // pragma MARK: std::shared_ptr<HybridNitroGoogleSsoSpec>
+  std::shared_ptr<HybridNitroGoogleSsoSpec> create_std__shared_ptr_HybridNitroGoogleSsoSpec_(void* _Nonnull swiftUnsafePointer) noexcept {
     NitroGoogleSso::HybridNitroGoogleSsoSpec_cxx swiftPart = NitroGoogleSso::HybridNitroGoogleSsoSpec_cxx::fromUnsafe(swiftUnsafePointer);
     return std::make_shared<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpecSwift>(swiftPart);
   }
-  void* _Nonnull get_std__shared_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_(std__shared_ptr_margelo__nitro__nitrogooglesso__HybridNitroGoogleSsoSpec_ cppType) {
+  void* _Nonnull get_std__shared_ptr_HybridNitroGoogleSsoSpec_(std__shared_ptr_HybridNitroGoogleSsoSpec_ cppType) noexcept {
     std::shared_ptr<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::nitrogooglesso::HybridNitroGoogleSsoSpecSwift>(cppType);
-  #ifdef NITRO_DEBUG
+    #ifdef NITRO_DEBUG
     if (swiftWrapper == nullptr) [[unlikely]] {
       throw std::runtime_error("Class \"HybridNitroGoogleSsoSpec\" is not implemented in Swift!");
     }
-  #endif
+    #endif
     NitroGoogleSso::HybridNitroGoogleSsoSpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
     return swiftPart.toUnsafe();
   }

@@ -22,8 +22,9 @@ public protocol HybridNitroGoogleSsoSpec_protocol: HybridObject {
 }
 
 /// See ``HybridNitroGoogleSsoSpec``
-public class HybridNitroGoogleSsoSpec_base {
+open class HybridNitroGoogleSsoSpec_base {
   private weak var cxxWrapper: HybridNitroGoogleSsoSpec_cxx? = nil
+  public init() { }
   public func getCxxWrapper() -> HybridNitroGoogleSsoSpec_cxx {
   #if DEBUG
     guard self is HybridNitroGoogleSsoSpec else {

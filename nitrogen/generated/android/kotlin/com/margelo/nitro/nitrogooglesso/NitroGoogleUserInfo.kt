@@ -11,6 +11,7 @@ import androidx.annotation.Keep
 import com.facebook.proguard.annotations.DoNotStrip
 import com.margelo.nitro.core.*
 
+
 /**
  * Represents the JavaScript object/struct "NitroGoogleUserInfo".
  */
@@ -20,12 +21,26 @@ data class NitroGoogleUserInfo
   @DoNotStrip
   @Keep
   constructor(
+    @DoNotStrip
+    @Keep
     val email: String,
+    @DoNotStrip
+    @Keep
     val idToken: String,
+    @DoNotStrip
+    @Keep
     val givenName: String?,
+    @DoNotStrip
+    @Keep
     val familyName: String?,
+    @DoNotStrip
+    @Keep
     val phoneNumber: String?,
+    @DoNotStrip
+    @Keep
     val displayName: String?,
+    @DoNotStrip
+    @Keep
     val profilePictureUri: String?
   ) {
   /* main constructor */

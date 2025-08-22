@@ -12,9 +12,9 @@ namespace margelo::nitro::nitrogooglesso { struct NitroGoogleUserInfo; }
 // Forward declaration of `NitroGoogleSSOConfig` to properly resolve imports.
 namespace margelo::nitro::nitrogooglesso { struct NitroGoogleSSOConfig; }
 
-#include <NitroModules/Promise.hpp>
-#include <optional>
 #include "NitroGoogleUserInfo.hpp"
+#include <optional>
+#include <NitroModules/Promise.hpp>
 #include <NitroModules/JPromise.hpp>
 #include "JNitroGoogleUserInfo.hpp"
 #include <string>
@@ -36,6 +36,11 @@ namespace margelo::nitro::nitrogooglesso {
   size_t JHybridNitroGoogleSsoSpec::getExternalMemorySize() noexcept {
     static const auto method = javaClassStatic()->getMethod<jlong()>("getMemorySize");
     return method(_javaPart);
+  }
+
+  void JHybridNitroGoogleSsoSpec::dispose() noexcept {
+    static const auto method = javaClassStatic()->getMethod<void()>("dispose");
+    method(_javaPart);
   }
 
   // Properties
