@@ -1,3 +1,17 @@
+## [1.1.7](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.6...v1.1.7) (2025-08-22)
+
+### 🛠️ Other changes
+
+* **deps:** bump actions/checkout from 4 to 5 ([48ee689](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/48ee689a804b14bdf07a77b983def7eed4aebd33))
+* **deps:** bump actions/setup-java from 4 to 5 ([1cbb1de](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/1cbb1de889f51cc3728b862182b37c0c682c32cd))
+* **deps:** bump com.android.tools.build:gradle in /android ([71f4a14](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/71f4a14df849e62e7a0b1dd3a123b142194002f4))
+
+## [1.1.6](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.5...v1.1.6) (2025-07-21)
+
+### 🛠️ Other changes
+
+* bump up react native ([136bfcd](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/136bfcd6f85acc59b54ed9d3f8c549df386069c5))
+
 ## [1.1.5](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.4...v1.1.5) (2025-07-21)
 
 ### 🛠️ Other changes
