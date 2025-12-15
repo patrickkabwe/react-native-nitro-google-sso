@@ -1,3 +1,29 @@
+## [1.2.0](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.7...v1.2.0) (2025-12-15)
+
+### ✨ Features
+
+* **android:** 16kb page support ([ca9bf85](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/ca9bf853adaf6e79ae9cc7c2347af43c2afa6e87))
+
+### 🔄 Code Refactors
+
+* update code generation and user info handling ([fe14c7b](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/fe14c7b1368c1878dd371c249a4904869b06b43e))
+* update user info handling to use variant type ([4cc8e20](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/4cc8e20a2a6f0e425a38f2a38a6564607e8a5640))
+
+### 🛠️ Other changes
+
+* **android:** refine linker flags for 16KB page size ([cd0d41e](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/cd0d41e007d4bf875d210b126ba2f8596d801eee))
+* **deps-dev:** bump semantic-release from 24.2.5 to 24.2.7 ([e135b56](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/e135b56b0aebb6633a3386eb236d886d6731bd15))
+* **deps:** bump activesupport from 7.2.2.1 to 7.2.2.2 in /example ([e7b4f90](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/e7b4f90c00ca1ed3b695e60c09e7eb781a5a22ff))
+* **deps:** bump activesupport from 7.2.2.2 to 7.2.3 in /example ([e04e10c](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/e04e10cb717c9ea29173238b49da9554ac92c0a9))
+* **deps:** bump benchmark from 0.4.1 to 0.5.0 in /example ([f274230](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/f274230da5645b35ff46d91700014673be78d279))
+* **deps:** bump com.android.tools.build:gradle in /android ([3207c51](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/3207c515fa7cc0c544d0a8d3e912cafc80213a74))
+* remove unnecessary permissions from GitHub Actions workflow ([f384026](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/f384026452bf14f474682e322678624c8ce6e948))
+* reorder semantic-release plugins in release.config.js ([922bc01](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/922bc010a0be5a958658a2e2bda8cbef2288ac01))
+* select Xcode 16.4 for iOS build workflow ([9b0f619](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/9b0f619504e5767b4b517f36730610800ecaf95e))
+* update dependencies and GitHub Actions workflow ([67483d8](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/67483d8dcef0093b5510634a764e9fbeb3e5123e))
+* update dependencies and improve example app ([a02f8f4](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/a02f8f452b740d7138bd2dd0773a11eef2e7db4e))
+* update release workflow configuration ([e381d5a](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/e381d5a24d899f9e44de8c8d0ab2bb139a7dc7a7))
+
 ## [1.1.7](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.6...v1.1.7) (2025-08-22)
 
 ### 🛠️ Other changes
