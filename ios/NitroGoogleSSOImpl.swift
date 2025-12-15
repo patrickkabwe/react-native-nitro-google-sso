@@ -8,22 +8,22 @@
 import Foundation
 import GoogleSignIn
 
-class NitroGoogleSSOImpl {
+final class NitroGoogleSSOImpl {
     let domain: String = "com.nitro.google.sso"
     
     @MainActor
-    func getCurrentUser() async throws -> NitroGoogleUserInfo? {
+    func getCurrentUser() async throws -> Variant_NullType_NitroGoogleUserInfo {
         return try await withCheckedThrowingContinuation { continuation in
             if let user = GIDSignIn.sharedInstance.currentUser {
-                continuation.resume(returning: mapUserInfo(from: user))
+                continuation.resume(returning: NitroGoogleSSOImpl.mapUserInfo(from: user))
             } else {
-                GIDSignIn.sharedInstance.restorePreviousSignIn { [weak self] user, error in
+                GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
                     if let error = error {
                         continuation.resume(throwing: error)
                     } else if let user = user {
-                        continuation.resume(returning: self?.mapUserInfo(from: user))
+                        continuation.resume(returning: NitroGoogleSSOImpl.mapUserInfo(from: user))
                     } else {
-                        continuation.resume(returning: nil)
+                        continuation.resume(returning: .first(.null))
                     }
                 }
             }
@@ -31,11 +31,11 @@ class NitroGoogleSSOImpl {
     }
     
     @MainActor
-    func signIn() async throws -> NitroGoogleUserInfo {
+    func signIn() async throws -> Variant_NullType_NitroGoogleUserInfo {
         let vc: UIViewController = try self.getRootViewController()
         
         let signInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: vc)
-        return mapUserInfo(from: signInResult.user)
+        return NitroGoogleSSOImpl.mapUserInfo(from: signInResult.user)
     }
     
     @MainActor
@@ -56,18 +56,20 @@ extension NitroGoogleSSOImpl {
         )
     }
     
-    private func mapUserInfo(from user: GIDGoogleUser) -> NitroGoogleUserInfo {
+    private static func mapUserInfo(from user: GIDGoogleUser) -> Variant_NullType_NitroGoogleUserInfo {
         let profile = user.profile
         let profilePicUrl = profile?.imageURL(withDimension: 320)?.absoluteString
         
-        return NitroGoogleUserInfo(
-            email: profile?.email ?? "",
-            idToken: user.idToken?.tokenString ?? "",
-            givenName: profile?.givenName,
-            familyName: profile?.familyName,
-            phoneNumber: nil,
-            displayName: profile?.name,
-            profilePictureUri: profilePicUrl
+        return .second(
+            NitroGoogleUserInfo(
+                email: profile?.email ?? "",
+                idToken: user.idToken?.tokenString ?? "",
+                givenName: profile?.givenName,
+                familyName: profile?.familyName,
+                phoneNumber: nil,
+                displayName: profile?.name,
+                profilePictureUri: profilePicUrl
+            )
         )
     }
     
