@@ -12,7 +12,7 @@ class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec {
         GIDSignIn.sharedInstance.configuration = nitroGoogleSSOImpl.getConfig(config)
     }
     
-    func getCurrentUser() throws -> Promise<NitroGoogleUserInfo?> {
+    func getCurrentUser() throws -> Promise<Variant_NullType_NitroGoogleUserInfo> {
         return .async { [weak self] in
             guard let self else {
                 throw NitroGoogleSSOError.selfNoAvailable
@@ -25,7 +25,7 @@ class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec {
         }
     }
     
-    func signIn() throws -> Promise<NitroGoogleUserInfo?> {
+    func signIn() throws -> Promise<Variant_NullType_NitroGoogleUserInfo> {
         return .async { [weak self] in
             guard let self else {
                 throw NitroGoogleSSOError.selfNoAvailable
@@ -38,7 +38,7 @@ class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec {
         }
     }
     
-    func oneTapSignIn() throws -> NitroModules.Promise<NitroGoogleUserInfo?> {
+    func oneTapSignIn() throws -> NitroModules.Promise<Variant_NullType_NitroGoogleUserInfo> {
         fatalError("oneTapSignIn() is not supported on iOS")
     }
     

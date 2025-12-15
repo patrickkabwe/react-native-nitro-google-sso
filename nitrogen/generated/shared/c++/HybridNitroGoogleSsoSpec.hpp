@@ -19,8 +19,9 @@ namespace margelo::nitro::nitrogooglesso { struct NitroGoogleSSOConfig; }
 namespace margelo::nitro::nitrogooglesso { struct NitroGoogleUserInfo; }
 
 #include "NitroGoogleSSOConfig.hpp"
+#include <NitroModules/Null.hpp>
 #include "NitroGoogleUserInfo.hpp"
-#include <optional>
+#include <variant>
 #include <NitroModules/Promise.hpp>
 
 namespace margelo::nitro::nitrogooglesso {
@@ -55,10 +56,10 @@ namespace margelo::nitro::nitrogooglesso {
     public:
       // Methods
       virtual void configure(const NitroGoogleSSOConfig& config) = 0;
-      virtual std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> signIn() = 0;
-      virtual std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> oneTapSignIn() = 0;
+      virtual std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> signIn() = 0;
+      virtual std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> oneTapSignIn() = 0;
       virtual std::shared_ptr<Promise<void>> signOut() = 0;
-      virtual std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> getCurrentUser() = 0;
+      virtual std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> getCurrentUser() = 0;
 
     protected:
       // Hybrid Setup

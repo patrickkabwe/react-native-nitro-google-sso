@@ -5,6 +5,7 @@ import com.margelo.nitro.core.Promise
 import com.margelo.nitro.nitrogooglesso.HybridNitroGoogleSsoSpec
 import com.margelo.nitro.nitrogooglesso.NitroGoogleSSOConfig
 import com.margelo.nitro.nitrogooglesso.NitroGoogleUserInfo
+import com.margelo.nitro.nitrogooglesso.Variant_NullType_NitroGoogleUserInfo
 import kotlinx.coroutines.MainScope
 
 class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec() {
@@ -16,13 +17,13 @@ class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec() {
         nitroGoogleSSOImpl = NitroGoogleSSOImpl(context, config)
     }
 
-    override fun signIn(): Promise<NitroGoogleUserInfo?> {
+    override fun signIn(): Promise<Variant_NullType_NitroGoogleUserInfo> {
         return Promise.async(mainScope) {
             nitroGoogleSSOImpl.signIn()
         }
     }
 
-    override fun oneTapSignIn(): Promise<NitroGoogleUserInfo?> {
+    override fun oneTapSignIn(): Promise<Variant_NullType_NitroGoogleUserInfo> {
         return Promise.async(mainScope) {
             nitroGoogleSSOImpl.oneTapSignIn()
         }
@@ -34,7 +35,7 @@ class HybridNitroGoogleSso: HybridNitroGoogleSsoSpec() {
         }
     }
 
-    override fun getCurrentUser(): Promise<NitroGoogleUserInfo?> {
+    override fun getCurrentUser(): Promise<Variant_NullType_NitroGoogleUserInfo> {
         return Promise.async(mainScope) {
             nitroGoogleSSOImpl.getCurrentUser()
         }

@@ -41,6 +41,7 @@ namespace margelo::nitro::nitrogooglesso {
   public:
     size_t getExternalMemorySize() noexcept override;
     void dispose() noexcept override;
+    std::string toString() override;
 
   public:
     inline const jni::global_ref<JHybridNitroGoogleSsoSpec::javaobject>& getJavaPart() const noexcept {
@@ -54,10 +55,10 @@ namespace margelo::nitro::nitrogooglesso {
   public:
     // Methods
     void configure(const NitroGoogleSSOConfig& config) override;
-    std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> signIn() override;
-    std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> oneTapSignIn() override;
+    std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> signIn() override;
+    std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> oneTapSignIn() override;
     std::shared_ptr<Promise<void>> signOut() override;
-    std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> getCurrentUser() override;
+    std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> getCurrentUser() override;
 
   private:
     friend HybridBase;

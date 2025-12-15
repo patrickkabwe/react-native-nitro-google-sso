@@ -54,7 +54,11 @@ namespace margelo::nitro::nitrogooglesso {
      */
     [[maybe_unused]]
     static jni::local_ref<JNitroGoogleSSOConfig::javaobject> fromCpp(const NitroGoogleSSOConfig& value) {
-      return newInstance(
+      using JSignature = JNitroGoogleSSOConfig(jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>);
+      static const auto clazz = javaClassStatic();
+      static const auto create = clazz->getStaticMethod<JSignature>("fromCpp");
+      return create(
+        clazz,
         value.nonce.has_value() ? jni::make_jstring(value.nonce.value()) : nullptr,
         jni::make_jstring(value.iosClientId),
         jni::make_jstring(value.webClientId),

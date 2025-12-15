@@ -76,7 +76,7 @@ open class HybridNitroGoogleSsoSpec_cxx {
    */
   public func getCxxPart() -> bridge.std__shared_ptr_HybridNitroGoogleSsoSpec_ {
     let cachedCxxPart = self.__cxxPart.lock()
-    if cachedCxxPart.__convertToBool() {
+    if Bool(fromCxx: cachedCxxPart) {
       return cachedCxxPart
     } else {
       let newCxxPart = bridge.create_std__shared_ptr_HybridNitroGoogleSsoSpec_(self.toUnsafe())
@@ -105,6 +105,14 @@ open class HybridNitroGoogleSsoSpec_cxx {
     self.__implementation.dispose()
   }
 
+  /**
+   * Call toString() on the Swift class.
+   */
+  @inline(__always)
+  public func toString() -> String {
+    return self.__implementation.toString()
+  }
+
   // Properties
   
 
@@ -121,52 +129,54 @@ open class HybridNitroGoogleSsoSpec_cxx {
   }
   
   @inline(__always)
-  public final func signIn() -> bridge.Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____ {
+  public final func signIn() -> bridge.Result_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo____ {
     do {
       let __result = try self.__implementation.signIn()
-      let __resultCpp = { () -> bridge.std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___ in
-        let __promise = bridge.create_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___()
-        let __promiseHolder = bridge.wrap_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___(__promise)
+      let __resultCpp = { () -> bridge.std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo___ in
+        let __promise = bridge.create_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo___()
+        let __promiseHolder = bridge.wrap_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo___(__promise)
         __result
-          .then({ __result in __promiseHolder.resolve({ () -> bridge.std__optional_NitroGoogleUserInfo_ in
-              if let __unwrappedValue = __result {
-                return bridge.create_std__optional_NitroGoogleUserInfo_(__unwrappedValue)
-              } else {
-                return .init()
+          .then({ __result in __promiseHolder.resolve({ () -> bridge.std__variant_nitro__NullType__NitroGoogleUserInfo_ in
+              switch __result {
+                case .first(let __value):
+                  return bridge.create_std__variant_nitro__NullType__NitroGoogleUserInfo_(margelo.nitro.NullType.null)
+                case .second(let __value):
+                  return bridge.create_std__variant_nitro__NullType__NitroGoogleUserInfo_(__value)
               }
-            }()) })
+            }().variant) })
           .catch({ __error in __promiseHolder.reject(__error.toCpp()) })
         return __promise
       }()
-      return bridge.create_Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____(__resultCpp)
+      return bridge.create_Result_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo____(__resultCpp)
     } catch (let __error) {
       let __exceptionPtr = __error.toCpp()
-      return bridge.create_Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____(__exceptionPtr)
+      return bridge.create_Result_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo____(__exceptionPtr)
     }
   }
   
   @inline(__always)
-  public final func oneTapSignIn() -> bridge.Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____ {
+  public final func oneTapSignIn() -> bridge.Result_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo____ {
     do {
       let __result = try self.__implementation.oneTapSignIn()
-      let __resultCpp = { () -> bridge.std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___ in
-        let __promise = bridge.create_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___()
-        let __promiseHolder = bridge.wrap_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___(__promise)
+      let __resultCpp = { () -> bridge.std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo___ in
+        let __promise = bridge.create_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo___()
+        let __promiseHolder = bridge.wrap_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo___(__promise)
         __result
-          .then({ __result in __promiseHolder.resolve({ () -> bridge.std__optional_NitroGoogleUserInfo_ in
-              if let __unwrappedValue = __result {
-                return bridge.create_std__optional_NitroGoogleUserInfo_(__unwrappedValue)
-              } else {
-                return .init()
+          .then({ __result in __promiseHolder.resolve({ () -> bridge.std__variant_nitro__NullType__NitroGoogleUserInfo_ in
+              switch __result {
+                case .first(let __value):
+                  return bridge.create_std__variant_nitro__NullType__NitroGoogleUserInfo_(margelo.nitro.NullType.null)
+                case .second(let __value):
+                  return bridge.create_std__variant_nitro__NullType__NitroGoogleUserInfo_(__value)
               }
-            }()) })
+            }().variant) })
           .catch({ __error in __promiseHolder.reject(__error.toCpp()) })
         return __promise
       }()
-      return bridge.create_Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____(__resultCpp)
+      return bridge.create_Result_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo____(__resultCpp)
     } catch (let __error) {
       let __exceptionPtr = __error.toCpp()
-      return bridge.create_Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____(__exceptionPtr)
+      return bridge.create_Result_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo____(__exceptionPtr)
     }
   }
   
@@ -190,27 +200,28 @@ open class HybridNitroGoogleSsoSpec_cxx {
   }
   
   @inline(__always)
-  public final func getCurrentUser() -> bridge.Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____ {
+  public final func getCurrentUser() -> bridge.Result_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo____ {
     do {
       let __result = try self.__implementation.getCurrentUser()
-      let __resultCpp = { () -> bridge.std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___ in
-        let __promise = bridge.create_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___()
-        let __promiseHolder = bridge.wrap_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo___(__promise)
+      let __resultCpp = { () -> bridge.std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo___ in
+        let __promise = bridge.create_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo___()
+        let __promiseHolder = bridge.wrap_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo___(__promise)
         __result
-          .then({ __result in __promiseHolder.resolve({ () -> bridge.std__optional_NitroGoogleUserInfo_ in
-              if let __unwrappedValue = __result {
-                return bridge.create_std__optional_NitroGoogleUserInfo_(__unwrappedValue)
-              } else {
-                return .init()
+          .then({ __result in __promiseHolder.resolve({ () -> bridge.std__variant_nitro__NullType__NitroGoogleUserInfo_ in
+              switch __result {
+                case .first(let __value):
+                  return bridge.create_std__variant_nitro__NullType__NitroGoogleUserInfo_(margelo.nitro.NullType.null)
+                case .second(let __value):
+                  return bridge.create_std__variant_nitro__NullType__NitroGoogleUserInfo_(__value)
               }
-            }()) })
+            }().variant) })
           .catch({ __error in __promiseHolder.reject(__error.toCpp()) })
         return __promise
       }()
-      return bridge.create_Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____(__resultCpp)
+      return bridge.create_Result_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo____(__resultCpp)
     } catch (let __error) {
       let __exceptionPtr = __error.toCpp()
-      return bridge.create_Result_std__shared_ptr_Promise_std__optional_NitroGoogleUserInfo____(__exceptionPtr)
+      return bridge.create_Result_std__shared_ptr_Promise_std__variant_nitro__NullType__NitroGoogleUserInfo____(__exceptionPtr)
     }
   }
 }

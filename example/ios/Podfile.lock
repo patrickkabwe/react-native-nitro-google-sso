@@ -36,7 +36,7 @@ PODS:
   - hermes-engine (0.81.0):
     - hermes-engine/Pre-built (= 0.81.0)
   - hermes-engine/Pre-built (0.81.0)
-  - NitroGoogleSso (1.1.5):
+  - NitroGoogleSso (1.1.7):
     - boost
     - DoubleConversion
     - fast_float
@@ -67,7 +67,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - NitroModules (0.28.1):
+  - NitroModules (0.31.10):
     - boost
     - DoubleConversion
     - fast_float
@@ -2656,8 +2656,8 @@ SPEC CHECKSUMS:
   GTMAppAuth: 217a876b249c3c585a54fd6f73e6b58c4f5c4238
   GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
   hermes-engine: e7491a2038f2618c8cd444ed411a6deb350a3742
-  NitroGoogleSso: 1b4a108218be4a8401363c26df653f1372a6f585
-  NitroModules: 58f33f6f7137aa5461298a0495b3e7a3a6fdea9d
+  NitroGoogleSso: f1218750aaca2ee6bf623912e7628249b43b2736
+  NitroModules: 5bc319d441f4983894ea66b1d392c519536e6d23
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: 0735ab4f6b3ec93a7f98187b5da74d7916e2cf4c
