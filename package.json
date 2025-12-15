@@ -12,7 +12,7 @@
         "clean": "git clean -dfX",
         "release": "semantic-release",
         "build": "bun run typecheck && bob build",
-        "codegen": "nitro-codegen --logLevel=\"debug\" && bun run build && node post-script.js",
+        "codegen": "nitrogen --logLevel=\"debug\" && bun run build && node post-script.js",
         "postcodegen": "bun --cwd example pod"
     },
     "keywords": [

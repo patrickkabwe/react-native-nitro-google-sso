@@ -13,8 +13,10 @@ import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GetSignInWithGoogleOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenParsingException
+import com.margelo.nitro.core.NullType
 import com.margelo.nitro.nitrogooglesso.NitroGoogleSSOConfig
 import com.margelo.nitro.nitrogooglesso.NitroGoogleUserInfo
+import com.margelo.nitro.nitrogooglesso.Variant_NullType_NitroGoogleUserInfo
 
 class NitroGoogleSSOImpl(
     private val context: ReactApplicationContext,
@@ -22,12 +24,12 @@ class NitroGoogleSSOImpl(
 ) {
     val credentialManager: CredentialManager = CredentialManager.create(context)
 
-    fun getCurrentUser(): NitroGoogleUserInfo? {
+    fun getCurrentUser(): Variant_NullType_NitroGoogleUserInfo {
         // TODO: // Implement getCurrentUser
-        return null
+        return Variant_NullType_NitroGoogleUserInfo.First(value = NullType.NULL)
     }
 
-    suspend fun signIn(): NitroGoogleUserInfo {
+    suspend fun signIn(): Variant_NullType_NitroGoogleUserInfo {
         try {
             val signInWithGoogleOption: GetSignInWithGoogleOption = GetSignInWithGoogleOption.Builder(config.webClientId)
                 .setNonce(config.nonce)
@@ -47,7 +49,7 @@ class NitroGoogleSSOImpl(
         }
     }
 
-    suspend fun oneTapSignIn(): NitroGoogleUserInfo {
+    suspend fun oneTapSignIn(): Variant_NullType_NitroGoogleUserInfo {
         try {
             val googleIdOption: GetGoogleIdOption = GetGoogleIdOption.Builder()
                 .setFilterByAuthorizedAccounts(false)
@@ -74,7 +76,7 @@ class NitroGoogleSSOImpl(
         credentialManager.clearCredentialState(request = clearRequest)
     }
 
-    fun handleSignInResult(credential: Credential): NitroGoogleUserInfo {
+    fun handleSignInResult(credential: Credential): Variant_NullType_NitroGoogleUserInfo {
         return when(credential){
             is CustomCredential -> {
                 if (credential.type != GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
@@ -83,14 +85,16 @@ class NitroGoogleSSOImpl(
                 try {
                     val googleIdTokenCredential = GoogleIdTokenCredential
                         .createFrom(credential.data)
-                    return NitroGoogleUserInfo(
-                        email = googleIdTokenCredential.id,
-                        idToken = googleIdTokenCredential.idToken,
-                        displayName = googleIdTokenCredential.displayName,
-                        givenName = googleIdTokenCredential.givenName,
-                        familyName = googleIdTokenCredential.familyName,
-                        phoneNumber = googleIdTokenCredential.phoneNumber,
-                        profilePictureUri = googleIdTokenCredential.profilePictureUri.toString()
+                    return Variant_NullType_NitroGoogleUserInfo.Second(
+                        value = NitroGoogleUserInfo(
+                            email = googleIdTokenCredential.id,
+                            idToken = googleIdTokenCredential.idToken,
+                            displayName = googleIdTokenCredential.displayName,
+                            givenName = googleIdTokenCredential.givenName,
+                            familyName = googleIdTokenCredential.familyName,
+                            phoneNumber = googleIdTokenCredential.phoneNumber,
+                            profilePictureUri = googleIdTokenCredential.profilePictureUri.toString()
+                        )
                     )
                 } catch (e: GoogleIdTokenParsingException) {
                     Log.e(TAG, "Received an invalid google id token response", e)

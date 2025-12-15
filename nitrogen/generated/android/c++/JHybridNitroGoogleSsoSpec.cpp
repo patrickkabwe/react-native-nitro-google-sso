@@ -12,12 +12,16 @@ namespace margelo::nitro::nitrogooglesso { struct NitroGoogleUserInfo; }
 // Forward declaration of `NitroGoogleSSOConfig` to properly resolve imports.
 namespace margelo::nitro::nitrogooglesso { struct NitroGoogleSSOConfig; }
 
+#include <NitroModules/Null.hpp>
 #include "NitroGoogleUserInfo.hpp"
-#include <optional>
+#include <variant>
 #include <NitroModules/Promise.hpp>
 #include <NitroModules/JPromise.hpp>
+#include "JVariant_NullType_NitroGoogleUserInfo.hpp"
+#include <NitroModules/JNull.hpp>
 #include "JNitroGoogleUserInfo.hpp"
 #include <string>
+#include <optional>
 #include "NitroGoogleSSOConfig.hpp"
 #include "JNitroGoogleSSOConfig.hpp"
 
@@ -43,6 +47,12 @@ namespace margelo::nitro::nitrogooglesso {
     method(_javaPart);
   }
 
+  std::string JHybridNitroGoogleSsoSpec::toString() {
+    static const auto method = javaClassStatic()->getMethod<jni::JString()>("toString");
+    auto javaString = method(_javaPart);
+    return javaString->toStdString();
+  }
+
   // Properties
   
 
@@ -51,14 +61,14 @@ namespace margelo::nitro::nitrogooglesso {
     static const auto method = javaClassStatic()->getMethod<void(jni::alias_ref<JNitroGoogleSSOConfig> /* config */)>("configure");
     method(_javaPart, JNitroGoogleSSOConfig::fromCpp(config));
   }
-  std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> JHybridNitroGoogleSsoSpec::signIn() {
+  std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> JHybridNitroGoogleSsoSpec::signIn() {
     static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>()>("signIn");
     auto __result = method(_javaPart);
     return [&]() {
-      auto __promise = Promise<std::optional<NitroGoogleUserInfo>>::create();
+      auto __promise = Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>::create();
       __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& __boxedResult) {
-        auto __result = jni::static_ref_cast<JNitroGoogleUserInfo>(__boxedResult);
-        __promise->resolve(__result != nullptr ? std::make_optional(__result->toCpp()) : std::nullopt);
+        auto __result = jni::static_ref_cast<JVariant_NullType_NitroGoogleUserInfo>(__boxedResult);
+        __promise->resolve(__result->toCpp());
       });
       __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
         jni::JniException __jniError(__throwable);
@@ -67,14 +77,14 @@ namespace margelo::nitro::nitrogooglesso {
       return __promise;
     }();
   }
-  std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> JHybridNitroGoogleSsoSpec::oneTapSignIn() {
+  std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> JHybridNitroGoogleSsoSpec::oneTapSignIn() {
     static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>()>("oneTapSignIn");
     auto __result = method(_javaPart);
     return [&]() {
-      auto __promise = Promise<std::optional<NitroGoogleUserInfo>>::create();
+      auto __promise = Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>::create();
       __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& __boxedResult) {
-        auto __result = jni::static_ref_cast<JNitroGoogleUserInfo>(__boxedResult);
-        __promise->resolve(__result != nullptr ? std::make_optional(__result->toCpp()) : std::nullopt);
+        auto __result = jni::static_ref_cast<JVariant_NullType_NitroGoogleUserInfo>(__boxedResult);
+        __promise->resolve(__result->toCpp());
       });
       __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
         jni::JniException __jniError(__throwable);
@@ -98,14 +108,14 @@ namespace margelo::nitro::nitrogooglesso {
       return __promise;
     }();
   }
-  std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> JHybridNitroGoogleSsoSpec::getCurrentUser() {
+  std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> JHybridNitroGoogleSsoSpec::getCurrentUser() {
     static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>()>("getCurrentUser");
     auto __result = method(_javaPart);
     return [&]() {
-      auto __promise = Promise<std::optional<NitroGoogleUserInfo>>::create();
+      auto __promise = Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>::create();
       __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& __boxedResult) {
-        auto __result = jni::static_ref_cast<JNitroGoogleUserInfo>(__boxedResult);
-        __promise->resolve(__result != nullptr ? std::make_optional(__result->toCpp()) : std::nullopt);
+        auto __result = jni::static_ref_cast<JVariant_NullType_NitroGoogleUserInfo>(__boxedResult);
+        __promise->resolve(__result->toCpp());
       });
       __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
         jni::JniException __jniError(__throwable);

@@ -9,7 +9,6 @@ package com.margelo.nitro.nitrogooglesso
 
 import androidx.annotation.Keep
 import com.facebook.proguard.annotations.DoNotStrip
-import com.margelo.nitro.core.*
 
 
 /**
@@ -17,22 +16,32 @@ import com.margelo.nitro.core.*
  */
 @DoNotStrip
 @Keep
-data class NitroGoogleSSOConfig
+data class NitroGoogleSSOConfig(
   @DoNotStrip
   @Keep
-  constructor(
+  val nonce: String?,
+  @DoNotStrip
+  @Keep
+  val iosClientId: String,
+  @DoNotStrip
+  @Keep
+  val webClientId: String,
+  @DoNotStrip
+  @Keep
+  val hostedDomain: String?
+) {
+  /* primary constructor */
+
+  private companion object {
+    /**
+     * Constructor called from C++
+     */
     @DoNotStrip
     @Keep
-    val nonce: String?,
-    @DoNotStrip
-    @Keep
-    val iosClientId: String,
-    @DoNotStrip
-    @Keep
-    val webClientId: String,
-    @DoNotStrip
-    @Keep
-    val hostedDomain: String?
-  ) {
-  /* main constructor */
+    @Suppress("unused")
+    @JvmStatic
+    private fun fromCpp(nonce: String?, iosClientId: String, webClientId: String, hostedDomain: String?): NitroGoogleSSOConfig {
+      return NitroGoogleSSOConfig(nonce, iosClientId, webClientId, hostedDomain)
+    }
+  }
 }

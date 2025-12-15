@@ -20,7 +20,9 @@ namespace margelo::nitro::nitrogooglesso { struct NitroGoogleUserInfo; }
 #include "NitroGoogleSSOConfig.hpp"
 #include <string>
 #include <optional>
+#include <NitroModules/Null.hpp>
 #include "NitroGoogleUserInfo.hpp"
+#include <variant>
 #include <NitroModules/Promise.hpp>
 
 #include "NitroGoogleSso-Swift-Cxx-Umbrella.hpp"
@@ -57,6 +59,9 @@ namespace margelo::nitro::nitrogooglesso {
     void dispose() noexcept override {
       _swiftPart.dispose();
     }
+    std::string toString() override {
+      return _swiftPart.toString();
+    }
 
   public:
     // Properties
@@ -65,12 +70,12 @@ namespace margelo::nitro::nitrogooglesso {
   public:
     // Methods
     inline void configure(const NitroGoogleSSOConfig& config) override {
-      auto __result = _swiftPart.configure(config);
+      auto __result = _swiftPart.configure(std::forward<decltype(config)>(config));
       if (__result.hasError()) [[unlikely]] {
         std::rethrow_exception(__result.error());
       }
     }
-    inline std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> signIn() override {
+    inline std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> signIn() override {
       auto __result = _swiftPart.signIn();
       if (__result.hasError()) [[unlikely]] {
         std::rethrow_exception(__result.error());
@@ -78,7 +83,7 @@ namespace margelo::nitro::nitrogooglesso {
       auto __value = std::move(__result.value());
       return __value;
     }
-    inline std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> oneTapSignIn() override {
+    inline std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> oneTapSignIn() override {
       auto __result = _swiftPart.oneTapSignIn();
       if (__result.hasError()) [[unlikely]] {
         std::rethrow_exception(__result.error());
@@ -94,7 +99,7 @@ namespace margelo::nitro::nitrogooglesso {
       auto __value = std::move(__result.value());
       return __value;
     }
-    inline std::shared_ptr<Promise<std::optional<NitroGoogleUserInfo>>> getCurrentUser() override {
+    inline std::shared_ptr<Promise<std::variant<nitro::NullType, NitroGoogleUserInfo>>> getCurrentUser() override {
       auto __result = _swiftPart.getCurrentUser();
       if (__result.hasError()) [[unlikely]] {
         std::rethrow_exception(__result.error());

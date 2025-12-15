@@ -9,7 +9,6 @@ package com.margelo.nitro.nitrogooglesso
 
 import androidx.annotation.Keep
 import com.facebook.proguard.annotations.DoNotStrip
-import com.margelo.nitro.core.*
 
 
 /**
@@ -17,31 +16,41 @@ import com.margelo.nitro.core.*
  */
 @DoNotStrip
 @Keep
-data class NitroGoogleUserInfo
+data class NitroGoogleUserInfo(
   @DoNotStrip
   @Keep
-  constructor(
+  val email: String,
+  @DoNotStrip
+  @Keep
+  val idToken: String,
+  @DoNotStrip
+  @Keep
+  val givenName: String?,
+  @DoNotStrip
+  @Keep
+  val familyName: String?,
+  @DoNotStrip
+  @Keep
+  val phoneNumber: String?,
+  @DoNotStrip
+  @Keep
+  val displayName: String?,
+  @DoNotStrip
+  @Keep
+  val profilePictureUri: String?
+) {
+  /* primary constructor */
+
+  private companion object {
+    /**
+     * Constructor called from C++
+     */
     @DoNotStrip
     @Keep
-    val email: String,
-    @DoNotStrip
-    @Keep
-    val idToken: String,
-    @DoNotStrip
-    @Keep
-    val givenName: String?,
-    @DoNotStrip
-    @Keep
-    val familyName: String?,
-    @DoNotStrip
-    @Keep
-    val phoneNumber: String?,
-    @DoNotStrip
-    @Keep
-    val displayName: String?,
-    @DoNotStrip
-    @Keep
-    val profilePictureUri: String?
-  ) {
-  /* main constructor */
+    @Suppress("unused")
+    @JvmStatic
+    private fun fromCpp(email: String, idToken: String, givenName: String?, familyName: String?, phoneNumber: String?, displayName: String?, profilePictureUri: String?): NitroGoogleUserInfo {
+      return NitroGoogleUserInfo(email, idToken, givenName, familyName, phoneNumber, displayName, profilePictureUri)
+    }
+  }
 }

@@ -10,7 +10,9 @@ package com.margelo.nitro.nitrogooglesso
 import androidx.annotation.Keep
 import com.facebook.jni.HybridData
 import com.facebook.proguard.annotations.DoNotStrip
-import com.margelo.nitro.core.*
+import com.margelo.nitro.core.NullType
+import com.margelo.nitro.core.Promise
+import com.margelo.nitro.core.HybridObject
 
 /**
  * A Kotlin class representing the NitroGoogleSso HybridObject.
@@ -36,6 +38,11 @@ abstract class HybridNitroGoogleSsoSpec: HybridObject() {
     super.updateNative(hybridData)
   }
 
+  // Default implementation of `HybridObject.toString()`
+  override fun toString(): String {
+    return "[HybridObject NitroGoogleSso]"
+  }
+
   // Properties
   
 
@@ -46,11 +53,11 @@ abstract class HybridNitroGoogleSsoSpec: HybridObject() {
   
   @DoNotStrip
   @Keep
-  abstract fun signIn(): Promise<NitroGoogleUserInfo?>
+  abstract fun signIn(): Promise<Variant_NullType_NitroGoogleUserInfo>
   
   @DoNotStrip
   @Keep
-  abstract fun oneTapSignIn(): Promise<NitroGoogleUserInfo?>
+  abstract fun oneTapSignIn(): Promise<Variant_NullType_NitroGoogleUserInfo>
   
   @DoNotStrip
   @Keep
@@ -58,11 +65,11 @@ abstract class HybridNitroGoogleSsoSpec: HybridObject() {
   
   @DoNotStrip
   @Keep
-  abstract fun getCurrentUser(): Promise<NitroGoogleUserInfo?>
+  abstract fun getCurrentUser(): Promise<Variant_NullType_NitroGoogleUserInfo>
 
   private external fun initHybrid(): HybridData
 
   companion object {
-    private const val TAG = "HybridNitroGoogleSsoSpec"
+    protected const val TAG = "HybridNitroGoogleSsoSpec"
   }
 }
