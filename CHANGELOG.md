@@ -1,3 +1,11 @@
+## [1.2.1](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.2.0...v1.2.1) (2026-05-14)
+
+### 🛠️ Other changes
+
+* bump up nitro to 0.35.6 ([8613f35](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/8613f35a122b129acb696d5a5518546a440781df))
+* remove old architecture build steps from GitHub Actions workflows ([6058b6a](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/6058b6a24fd01710fcb107f4328047f0054427b7))
+* update Node.js setup in GitHub Actions workflow ([9baa161](https://github.com/patrickkabwe/react-native-nitro-google-sso/commit/9baa161c92ef648a9248dbdb270ad4fcbac7d953))
+
 ## [1.2.0](https://github.com/patrickkabwe/react-native-nitro-google-sso/compare/v1.1.7...v1.2.0) (2025-12-15)
 
 ### ✨ Features
