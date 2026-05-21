@@ -138,7 +138,7 @@ dependencies {
   implementation project(":react-native-nitro-modules")
 
   // Other dependencies
-  implementation "com.google.android.libraries.identity.googleid:googleid:1.1.1"
+  implementation "com.google.android.libraries.identity.googleid:googleid:1.2.0"
 }
 
 if (isNewArchitectureEnabled()) {
