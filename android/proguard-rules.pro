@@ -1,0 +1,2 @@
+-keep class com.margelo.nitro.nitrogooglesso.** { *; }
+-keep class com.nitrogooglesso.** { *; }
